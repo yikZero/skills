@@ -71,3 +71,5 @@ See [docs/SKILLS_CLI_NOTES.md](docs/SKILLS_CLI_NOTES.md) for source formats, loc
 ## Adding Skills
 
 Use [docs/ADDING_SKILLS.md](docs/ADDING_SKILLS.md) as the process checklist. Keep `AGENTS.md` as the source of truth for agent behavior in this repository.
+
+That doc also includes copy-paste prompts for asking an AI agent to add a new skill or migrate an existing skill safely.

@@ -13,6 +13,26 @@ Create a skill when the workflow is reusable and specific enough to improve futu
 
 Do not create a skill for one-off project facts. Put those in the target project's `AGENTS.md` instead.
 
+## Asking an AI to Add Skills
+
+For a new skill, use this prompt:
+
+```text
+In /Users/yikzero/Code/skills, add a new <topic> skill. Follow AGENTS.md and docs/ADDING_SKILLS.md. Keep it portable for Claude Code and Codex. Finish by running npm run validate, npx skills@latest add . --list, and git status --short --ignored.
+```
+
+For migrating an existing skill, use this prompt:
+
+```text
+Copy the skill from <source path or repo> into /Users/yikzero/Code/skills. Copy only the clean skills/<name>/ package. Do not copy .agents, .claude, skills-lock.json, .skill-lock.json, node_modules, or .git. Validate with npm run validate and npx skills@latest add . --list.
+```
+
+The agent should report:
+
+- Which skill directories changed.
+- Which validation commands were run.
+- Whether any install artifacts or lock files were detected.
+
 ## 2. Create the Folder
 
 Use lowercase kebab-case and make the folder name match frontmatter `name`:
@@ -119,3 +139,13 @@ Before pushing or distributing:
 - Review every script under `scripts/`.
 - Ensure descriptions are specific enough to trigger, but narrow enough to avoid unrelated tasks.
 - Prefer examples that match real prompts the user would type.
+
+Final local sanity check:
+
+```bash
+npm run validate
+npx skills@latest add . --list
+git status --short --ignored
+```
+
+If `git status --short --ignored` shows generated install output such as `.agents/`, `.claude/`, `skills-lock.json`, `.skill-lock.json`, or `node_modules/`, remove that output before committing.

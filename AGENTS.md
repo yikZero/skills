@@ -45,3 +45,25 @@ This repository is a personal Agent Skills catalog. Treat this file as the canon
 3. Run `npx skills@latest add . --list` and confirm the expected skill appears.
 4. If install behavior changed, test a local install into a temporary project. Create `.claude/` first when verifying the Claude Code symlink path.
 5. Update `README.md` or `docs/ADDING_SKILLS.md` when the user-facing workflow changes.
+
+## AI Handoff Patterns
+
+When the user asks to add a new skill, follow this request shape:
+
+```text
+Add a new <topic> skill in this repository. Follow AGENTS.md and docs/ADDING_SKILLS.md. Keep it portable for Claude Code and Codex. Finish by running npm run validate, npx skills@latest add . --list, and git status --short --ignored.
+```
+
+When the user asks to migrate an existing skill, follow this request shape:
+
+```text
+Copy the skill from <source path or repo> into this catalog. Copy only the clean skills/<name>/ package. Do not copy .agents, .claude, skills-lock.json, .skill-lock.json, node_modules, or .git. Follow AGENTS.md, validate discovery, and report the source path copied.
+```
+
+Always finish skill changes with:
+
+```bash
+npm run validate
+npx skills@latest add . --list
+git status --short --ignored
+```
