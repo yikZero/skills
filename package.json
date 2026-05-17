@@ -4,7 +4,7 @@
   "description": "Shortcut CLI for installing yikZero/skills with the skills CLI.",
   "type": "module",
   "bin": {
-    "yskill": "./bin/yskill.js"
+    "yskill": "bin/yskill.js"
   },
   "files": [
     "bin/yskill.js"
