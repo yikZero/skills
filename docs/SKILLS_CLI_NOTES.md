@@ -17,11 +17,24 @@ npx skills add ./local-skills-repo
 This repository also publishes a thin npm shortcut:
 
 ```bash
+npx yskill
 npx yskill --list
+npx yskill --preset frontend
 npx yskill --skill find-docs -a codex
 ```
 
-`yskill` forwards every argument to `npx skills@latest add yikZero/skills`.
+`yskill` forwards most arguments to `npx skills@latest add yikZero/skills`. With no selection arguments, it opens a first-level menu:
+
+```text
+What do you want to install?
+> Core recommended
+  Frontend bundle
+  Pick individual skills
+  Install all
+```
+
+`--preset default` expands to `find-docs`, `remove-ai-slop`, and `learn-to-agents`.
+`--preset frontend` expands to the default set plus `design`, `web-ui-audit`, `react-performance`, `react-composition`, `shadcn-ui`, and `tailwind-design-system`.
 
 Useful shorthand:
 
