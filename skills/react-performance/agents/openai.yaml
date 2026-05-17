@@ -1,0 +1,4 @@
+interface:
+  display_name: React Performance
+  short_description: Review and improve React or Next.js performance using Vercel-style rules.
+  default_prompt: Use React Performance to audit the target React or Next.js code for concrete performance issues.

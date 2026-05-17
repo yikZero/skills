@@ -1,0 +1,4 @@
+interface:
+  display_name: React Composition
+  short_description: Design and review React component APIs, state ownership, and composition patterns.
+  default_prompt: Use React Composition to review the target component API and suggest a cleaner composition pattern.

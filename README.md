@@ -41,7 +41,12 @@ scripts/
 - `find-docs`: Context7 CLI workflow for fetching current library, framework, SDK, API, and CLI documentation.
 - `learn-to-agents`: capture durable project discoveries in the nearest scoped `AGENTS.md`.
 - `remove-ai-slop`: clean generated-looking code from diffs before review or commit.
+- `react-composition`: review and refactor React component APIs, state ownership, and composition patterns.
+- `react-performance`: review and improve React or Next.js performance using Vercel-style rules.
+- `shadcn-ui`: add, customize, and review shadcn/ui components with CLI-backed workflows.
 - `skill-authoring`: create, update, and validate portable Agent Skills.
+- `tailwind-design-system`: build and audit Tailwind CSS design systems, tokens, variants, and component patterns.
+- `web-ui-audit`: run terse file:line audits against web UI implementation guidelines.
 - `pi-coding-agent-sdk`: source-backed workflows and recipes for `@earendil-works/pi-coding-agent` SDK development.
 
 ## Installed Paths

@@ -1,0 +1,4 @@
+interface:
+  display_name: shadcn/ui
+  short_description: Add, customize, and review shadcn/ui components with CLI-backed workflows.
+  default_prompt: Use shadcn/ui to inspect the project and add or review the requested component safely.
