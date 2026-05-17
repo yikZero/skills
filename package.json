@@ -1,9 +1,22 @@
 {
-  "name": "@yikzero/skills",
-  "private": true,
+  "name": "yskill",
+  "version": "0.1.0",
+  "description": "Shortcut CLI for installing yikZero/skills with the skills CLI.",
   "type": "module",
+  "bin": {
+    "yskill": "./bin/yskill.js"
+  },
+  "files": [
+    "bin/yskill.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yikZero/skills.git"
+  },
+  "license": "MIT",
   "scripts": {
     "validate": "node scripts/validate-skills.mjs",
-    "skills:list": "npx skills@latest add . --list"
+    "skills:list": "npx skills@latest add . --list",
+    "cli:list": "node bin/yskill.js --list"
   }
 }

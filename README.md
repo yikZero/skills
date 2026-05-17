@@ -5,6 +5,13 @@ Personal Agent Skills catalog for Claude Code and Codex.
 This repository is designed to work with the `skills` CLI:
 
 ```bash
+npx yskill --list
+npx yskill --skill design -a claude-code -a codex
+```
+
+`yskill` is a small npm shortcut for:
+
+```bash
 npx skills add yikZero/skills --list
 npx skills add yikZero/skills --skill design -a claude-code -a codex
 ```
@@ -77,6 +84,7 @@ npx skills@latest update design -p -y
 Run real remote installs from a consuming project, not this source repository:
 
 ```bash
+npx yskill --skill design -a claude-code -a codex
 npx skills@latest add yikZero/skills@design -a claude-code -a codex
 ```
 

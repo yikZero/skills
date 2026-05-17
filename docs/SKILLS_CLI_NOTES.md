@@ -14,6 +14,15 @@ npx skills add git@github.com:yikZero/skills.git
 npx skills add ./local-skills-repo
 ```
 
+This repository also publishes a thin npm shortcut:
+
+```bash
+npx yskill --list
+npx yskill --skill find-docs -a codex
+```
+
+`yskill` forwards every argument to `npx skills@latest add yikZero/skills`.
+
 Useful shorthand:
 
 ```bash
