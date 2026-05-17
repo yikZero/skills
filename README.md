@@ -6,14 +6,14 @@ This repository is designed to work with the `skills` CLI:
 
 ```bash
 npx skills add yikZero/skills --list
-npx skills add yikZero/skills --skill skill-authoring -a claude-code -a codex
+npx skills add yikZero/skills --skill design -a claude-code -a codex
 ```
 
 For local development before publishing:
 
 ```bash
 npx skills add /path/to/skills --list
-npx skills add /path/to/skills --skill skill-authoring -a claude-code -a codex
+npx skills add /path/to/skills --skill design -a claude-code -a codex
 ```
 
 ## Layout
@@ -37,6 +37,7 @@ scripts/
 
 ## Included Skills
 
+- `design`: focused frontend UI review and refinement workflow adapted from `pbakaus/impeccable`, exposed as `audit`, `critique`, `polish`, `harden`, `layout`, `typeset`, `colorize`, `clarify`, and `distill`.
 - `skill-authoring`: create, update, and validate portable Agent Skills.
 - `pi-coding-agent-sdk`: source-backed workflows and recipes for `@earendil-works/pi-coding-agent` SDK development.
 
@@ -59,8 +60,8 @@ The default `skills` CLI install mode uses a canonical copy plus symlinks where 
 ```bash
 npm run validate
 npx skills@latest add . --list
-npx skills@latest add . --skill skill-authoring -a claude-code -a codex
-npx skills@latest update skill-authoring -p -y
+npx skills@latest add . --skill design -a claude-code -a codex
+npx skills@latest update design -p -y
 ```
 
 `npx skills add yikZero/skills --list` temporarily clones the remote repository to inspect skills; it should not write `.agents/`, `.claude/`, or `skills-lock.json` into this source repository.
@@ -68,7 +69,7 @@ npx skills@latest update skill-authoring -p -y
 Run real remote installs from a consuming project, not this source repository:
 
 ```bash
-npx skills@latest add yikZero/skills@pi-coding-agent-sdk -a claude-code -a codex
+npx skills@latest add yikZero/skills@design -a claude-code -a codex
 ```
 
 See [docs/SKILLS_CLI_NOTES.md](docs/SKILLS_CLI_NOTES.md) for source formats, lock behavior, update rules, and safe local testing.

@@ -1,0 +1,4 @@
+interface:
+  display_name: Skill Authoring
+  short_description: Create, migrate, review, and validate portable Agent Skills for Claude Code and Codex.
+  default_prompt: Use Skill Authoring to add or improve a portable skill in this catalog.
