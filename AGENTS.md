@@ -34,6 +34,7 @@ This repository is a personal Agent Skills catalog. Treat this file as the canon
 
 - `skills/`: installable skills discovered by `npx skills`.
 - `docs/ADDING_SKILLS.md`: step-by-step process for adding or updating skills.
+- `docs/SKILLS_CLI_NOTES.md`: skills CLI source formats, lock files, and install/update behavior.
 - `templates/`: non-installable starter files.
 - `scripts/validate-skills.mjs`: local repository validation.
 

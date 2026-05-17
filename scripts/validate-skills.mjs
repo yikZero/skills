@@ -1,12 +1,14 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
-import { join, basename } from 'node:path';
+import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const skillsDir = join(root, 'skills');
 const errors = [];
 
-const namePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const namePattern = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
+const catalogDirs = new Set(['.curated', '.experimental', '.system']);
+const forbiddenRootEntries = ['skills-lock.json', '.skill-lock.json', '.agents', '.claude', 'node_modules'];
 
 async function exists(path) {
   try {
@@ -37,10 +39,32 @@ function parseFrontmatter(content, file) {
     if (!match) continue;
     fields[match[1]] = match[2].replace(/^['"]|['"]$/g, '').trim();
   }
-  return fields;
+  return { fields, raw };
 }
 
-async function validateSkill(skillPath) {
+function hasInternalMetadata(raw) {
+  if (/^metadata:\s*\{[^}]*internal:\s*true\b[^}]*\}\s*$/m.test(raw)) {
+    return true;
+  }
+
+  const lines = raw.split('\n');
+  for (let index = 0; index < lines.length; index += 1) {
+    if (!/^metadata:\s*$/.test(lines[index])) continue;
+
+    for (let child = index + 1; child < lines.length; child += 1) {
+      const line = lines[child];
+      if (!line.trim()) continue;
+      if (!/^\s+/.test(line)) break;
+      if (/^\s+internal:\s*true\s*$/.test(line)) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+async function validateSkill(skillPath, options = {}) {
   const skillName = basename(skillPath);
   const skillFile = join(skillPath, 'SKILL.md');
   if (!(await exists(skillFile))) {
@@ -49,8 +73,10 @@ async function validateSkill(skillPath) {
   }
 
   const content = await readFile(skillFile, 'utf8');
-  const fields = parseFrontmatter(content, skillFile);
-  if (!fields) return;
+  const frontmatter = parseFrontmatter(content, skillFile);
+  if (!frontmatter) return;
+
+  const { fields, raw } = frontmatter;
 
   if (!fields.name) {
     errors.push(`${skillFile}: missing name`);
@@ -59,7 +85,7 @@ async function validateSkill(skillPath) {
       errors.push(`${skillFile}: name "${fields.name}" does not match directory "${skillName}"`);
     }
     if (!namePattern.test(fields.name)) {
-      errors.push(`${skillFile}: name must be lowercase kebab-case`);
+      errors.push(`${skillFile}: name must be lowercase kebab-case and start with a letter`);
     }
     if (fields.name.length > 64) {
       errors.push(`${skillFile}: name must be at most 64 characters`);
@@ -68,8 +94,14 @@ async function validateSkill(skillPath) {
 
   if (!fields.description) {
     errors.push(`${skillFile}: missing description`);
+  } else if (/^(true|false|\d+)$/i.test(fields.description)) {
+    errors.push(`${skillFile}: description must be descriptive text`);
   } else if (fields.description.length > 1024) {
     errors.push(`${skillFile}: description must be at most 1024 characters`);
+  }
+
+  if (options.requireInternal && !hasInternalMetadata(raw)) {
+    errors.push(`${skillFile}: skills under .experimental must set metadata.internal: true`);
   }
 
   const lines = content.split('\n').length;
@@ -78,11 +110,33 @@ async function validateSkill(skillPath) {
   }
 }
 
+for (const entryName of forbiddenRootEntries) {
+  if (await exists(join(root, entryName))) {
+    errors.push(`${entryName}: generated install output must not live in the source repository`);
+  }
+}
+
+async function validateCatalogDirectory(dir, options = {}) {
+  const entries = await readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    await validateSkill(join(dir, entry.name), options);
+  }
+}
+
 const entries = await readdir(skillsDir, { withFileTypes: true });
 for (const entry of entries) {
   if (!entry.isDirectory()) continue;
-  if (entry.name.startsWith('.')) continue;
-  await validateSkill(join(skillsDir, entry.name));
+
+  const entryPath = join(skillsDir, entry.name);
+  if (entry.name.startsWith('.')) {
+    if (catalogDirs.has(entry.name)) {
+      await validateCatalogDirectory(entryPath, { requireInternal: entry.name === '.experimental' });
+    }
+    continue;
+  }
+
+  await validateSkill(entryPath);
 }
 
 if (errors.length) {

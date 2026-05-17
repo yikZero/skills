@@ -43,13 +43,16 @@ Rules:
 This repository should stay installable by source:
 
 ```bash
-npx skills add yikzero/skills --list
-npx skills add yikzero/skills --skill <skill-name> -a claude-code -a codex
+npx skills add yikZero/skills --list
+npx skills add yikZero/skills --skill <skill-name> -a claude-code -a codex
+npx skills add yikZero/skills@<skill-name> -a claude-code -a codex
 ```
 
 The CLI searches common skill locations, including `skills/`, `.agents/skills/`, and `.claude/skills/`. This repository keeps canonical source under `skills/` to avoid generated install directories becoming source.
 
-Default install mode uses a canonical copy plus symlinks when supported. Use `--copy` only when symlinks are not suitable.
+Default install mode uses a canonical copy plus symlinks when supported. Use `--copy` only when symlinks are not suitable. `--list` may show "Cloning repository" for remote sources, but it should not write install output into the current working tree.
+
+Project installs write `skills-lock.json` in the consuming project. This source repository should not commit `skills-lock.json`, `.skill-lock.json`, `.agents/`, `.claude/`, or `node_modules/`.
 
 ## Quality Bar
 

@@ -88,6 +88,13 @@ find . -maxdepth 4 -type f -name SKILL.md -print
 
 Confirm `.agents/skills/my-skill/SKILL.md` exists. If `.claude/` existed before installation, confirm `.claude/skills/my-skill` is a symlink to the canonical `.agents/skills/my-skill` directory.
 
+After publishing the change, verify the remote source and shorthand selector:
+
+```bash
+npx skills@latest add yikZero/skills --list
+npx skills@latest add yikZero/skills@my-skill -a codex -y
+```
+
 ## 6. Update Existing Installs
 
 After changing a published skill:
