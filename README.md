@@ -38,6 +38,7 @@ scripts/
 ## Included Skills
 
 - `design`: focused frontend UI review and refinement workflow adapted from `pbakaus/impeccable`, exposed as `audit`, `critique`, `polish`, `harden`, `layout`, `typeset`, `colorize`, `clarify`, and `distill`.
+- `find-docs`: Context7 CLI workflow for fetching current library, framework, SDK, API, and CLI documentation.
 - `skill-authoring`: create, update, and validate portable Agent Skills.
 - `pi-coding-agent-sdk`: source-backed workflows and recipes for `@earendil-works/pi-coding-agent` SDK development.
 

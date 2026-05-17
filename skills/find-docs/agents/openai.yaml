@@ -1,0 +1,4 @@
+interface:
+  display_name: Find Docs
+  short_description: Fetch current library, framework, SDK, API, and CLI documentation with Context7.
+  default_prompt: Use Find Docs to verify current documentation before answering a developer API question.
