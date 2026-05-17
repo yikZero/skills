@@ -6,7 +6,7 @@ This repository is a personal Agent Skills catalog. Treat this file as the canon
 
 - Skills are authored once under `skills/<skill-name>/`.
 - Each skill must be installable with the Vercel `skills` CLI, for example:
-  `npx skills add yikzero/skills --skill <skill-name> -a claude-code -a codex`
+  `npx skills add yikZero/skills --skill <skill-name> -a claude-code -a codex`
 - Claude Code project installs target `.claude/skills/`.
 - Codex project installs target `.agents/skills/`.
 - Prefer portable Agent Skills format over Claude-only or Codex-only fields.

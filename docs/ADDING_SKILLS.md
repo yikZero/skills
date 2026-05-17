@@ -73,7 +73,7 @@ Run `scripts/normalize.py <input> <output>` for deterministic normalization.
 The default target is both Claude Code and Codex, installed with:
 
 ```bash
-npx skills add yikzero/skills --skill my-skill -a claude-code -a codex
+npx skills add yikZero/skills --skill my-skill -a claude-code -a codex
 ```
 
 Avoid agent-specific frontmatter unless the skill deliberately targets one agent. Prefer the portable fields:
@@ -112,6 +112,8 @@ After publishing the change, verify the remote source and shorthand selector:
 
 ```bash
 npx skills@latest add yikZero/skills --list
+tmpdir=$(mktemp -d)
+cd "$tmpdir"
 npx skills@latest add yikZero/skills@my-skill -a codex -y
 ```
 

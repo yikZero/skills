@@ -5,8 +5,8 @@ Personal Agent Skills catalog for Claude Code and Codex.
 This repository is designed to work with the `skills` CLI:
 
 ```bash
-npx skills add yikzero/skills --list
-npx skills add yikzero/skills --skill skill-authoring -a claude-code -a codex
+npx skills add yikZero/skills --list
+npx skills add yikZero/skills --skill skill-authoring -a claude-code -a codex
 ```
 
 For local development before publishing:
@@ -60,11 +60,16 @@ The default `skills` CLI install mode uses a canonical copy plus symlinks where 
 npm run validate
 npx skills@latest add . --list
 npx skills@latest add . --skill skill-authoring -a claude-code -a codex
-npx skills@latest add yikZero/skills@pi-coding-agent-sdk -a claude-code -a codex
 npx skills@latest update skill-authoring -p -y
 ```
 
 `npx skills add yikZero/skills --list` temporarily clones the remote repository to inspect skills; it should not write `.agents/`, `.claude/`, or `skills-lock.json` into this source repository.
+
+Run real remote installs from a consuming project, not this source repository:
+
+```bash
+npx skills@latest add yikZero/skills@pi-coding-agent-sdk -a claude-code -a codex
+```
 
 See [docs/SKILLS_CLI_NOTES.md](docs/SKILLS_CLI_NOTES.md) for source formats, lock behavior, update rules, and safe local testing.
 
