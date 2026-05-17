@@ -26,10 +26,11 @@ If the project is Tailwind v3 or uses a framework-specific setup, verify the ins
 
 1. Inspect `package.json`, lockfiles, Tailwind config, global CSS, and existing component patterns.
 2. Identify whether the task is token architecture, component extraction, responsive behavior, animation, dark mode, or migration.
-3. Read `references/advanced-patterns.md` when the task needs concrete Tailwind patterns, advanced variants, theme setup, or migration guidance.
-4. Prefer project-local tokens and conventions over introducing a new palette or naming system.
-5. Avoid churn: do not rewrite every class string unless the requested change requires it.
-6. Validate with the project's focused lint, typecheck, build, or visual smoke test when available.
+3. Read `references/core-patterns.md` for token architecture, Tailwind v4 setup, component variants, responsive patterns, accessibility, performance, and migration basics.
+4. Read `references/advanced-patterns.md` only when the task needs advanced variants, native animations, theme modifiers, namespace overrides, or deeper migration guidance.
+5. Prefer project-local tokens and conventions over introducing a new palette or naming system.
+6. Avoid churn: do not rewrite every class string unless the requested change requires it.
+7. Validate with the project's focused lint, typecheck, build, or visual smoke test when available.
 
 ## Rules
 

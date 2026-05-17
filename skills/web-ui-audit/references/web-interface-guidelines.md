@@ -1,13 +1,6 @@
----
-description: Review UI code for Vercel Web Interface Guidelines compliance
-argument-hint: <file-or-pattern>
----
-
 # Web Interface Guidelines
 
-Review these files for compliance: $ARGUMENTS
-
-Read files, check against rules below. Output concise but comprehensive—sacrifice grammar for brevity. High signal-to-noise.
+Review the requested UI files for compliance with the rules below. Output concise but comprehensive findings with high signal-to-noise.
 
 ## Rules
 
@@ -57,7 +50,7 @@ Read files, check against rules below. Output concise but comprehensive—sacrif
 ### Typography
 
 - `…` not `...`
-- Curly quotes `"` `"` not straight `"`
+- Use curly quotes (`“”`, `‘’`) in prose where the product copy style calls for typographic quotes; avoid straight ASCII quotes (`"`, `'`) in polished display copy.
 - Non-breaking spaces: `10&nbsp;MB`, `⌘&nbsp;K`, brand names
 - Loading states end with `…`: `"Loading…"`, `"Saving…"`
 - `font-variant-numeric: tabular-nums` for number columns/comparisons
@@ -174,7 +167,7 @@ src/Modal.tsx:34 - "..." → "…"
 
 ## src/Card.tsx
 
-✓ pass
+pass
 ```
 
 State issue + location. Skip explanation unless fix non-obvious. No preamble.
