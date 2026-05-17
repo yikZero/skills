@@ -1,0 +1,7 @@
+node_modules/
+skills-lock.json
+.skill-lock.json
+.agents/
+.claude/
+.env
+.DS_Store

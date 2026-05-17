@@ -1,0 +1,9 @@
+{
+  "name": "@yikzero/skills",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-skills.mjs",
+    "skills:list": "npx skills@latest add . --list"
+  }
+}
