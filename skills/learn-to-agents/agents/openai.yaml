@@ -1,0 +1,4 @@
+interface:
+  display_name: Learn To AGENTS
+  short_description: Capture durable project discoveries in the nearest scoped AGENTS.md file.
+  default_prompt: Use Learn To AGENTS to add reusable session learnings to the right AGENTS.md.

@@ -39,6 +39,8 @@ scripts/
 
 - `design`: focused frontend UI review and refinement workflow adapted from `pbakaus/impeccable`, exposed as `audit`, `critique`, `polish`, `harden`, `layout`, `typeset`, `colorize`, `clarify`, and `distill`.
 - `find-docs`: Context7 CLI workflow for fetching current library, framework, SDK, API, and CLI documentation.
+- `learn-to-agents`: capture durable project discoveries in the nearest scoped `AGENTS.md`.
+- `remove-ai-slop`: clean generated-looking code from diffs before review or commit.
 - `skill-authoring`: create, update, and validate portable Agent Skills.
 - `pi-coding-agent-sdk`: source-backed workflows and recipes for `@earendil-works/pi-coding-agent` SDK development.
 
