@@ -66,6 +66,7 @@ scripts/
 ## Included Skills
 
 - `design`: focused frontend UI review and refinement workflow adapted from `pbakaus/impeccable`, exposed as `audit`, `critique`, `polish`, `harden`, `layout`, `typeset`, `colorize`, `clarify`, and `distill`.
+- `chat-sdk`: build and review Vercel Chat SDK bots across Slack, GitHub, Discord, Teams, and other chat platforms using SDK-native adapters, events, streaming, state, cards, and webhooks.
 - `find-docs`: Context7 CLI workflow for fetching current library, framework, SDK, API, and CLI documentation.
 - `learn-to-agents`: capture durable project discoveries in the nearest scoped `AGENTS.md`.
 - `remove-ai-slop`: clean generated-looking code from diffs before review or commit.
