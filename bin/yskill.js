@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
 import { spawn } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 
 const SOURCE = 'yikZero/skills';
+const VERSION = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version;
 const CORE_SKILLS = ['find-docs', 'remove-ai-slop', 'learn-to-agents'];
 const FRONTEND_SKILLS = [
   ...CORE_SKILLS,
@@ -104,12 +106,54 @@ function hasExplicitSelection(args) {
       arg === '-l' ||
       arg === '--all' ||
       arg === '--preset' ||
-      arg.startsWith('--preset=') ||
-      arg === '--help' ||
-      arg === '-h' ||
-      arg === '--version' ||
-      arg === '-v',
+      arg.startsWith('--preset='),
   );
+}
+
+function hasHelp(args) {
+  return args.includes('--help') || args.includes('-h');
+}
+
+function hasVersion(args) {
+  return args.includes('--version') || args.includes('-v');
+}
+
+function printHelp() {
+  console.log(`yskill ${VERSION}
+
+Usage:
+  npx yskill
+  npx yskill --preset <default|core|frontend> [skills options]
+  npx yskill --skill <name> [skills options]
+  npx yskill --all [skills options]
+  npx yskill --list
+
+Presets:
+  default, core  ${CORE_SKILLS.join(', ')}
+  frontend       ${FRONTEND_SKILLS.join(', ')}
+
+Options:
+  --preset <name>   Install a bundled skill set.
+  --skill <name>    Install one skill. Repeatable.
+  --all             Install every skill from ${SOURCE}.
+  --list            List available skills.
+  -a, --agent       Target agent option forwarded to the skills CLI.
+  -y, --yes         Skip confirmation, forwarded to the skills CLI.
+  -h, --help        Show this help.
+  -v, --version     Show the yskill version.
+
+In non-interactive shells, pass --preset, --skill, --all, or --list explicitly.`);
+}
+
+function printNonInteractiveUsage() {
+  console.error(`yskill needs an explicit selection in non-interactive shells.
+
+Use one of:
+  npx yskill --preset default
+  npx yskill --preset frontend
+  npx yskill --skill find-docs -a codex -y
+  npx yskill --all
+  npx yskill --list`);
 }
 
 async function chooseInstallMode() {
@@ -144,11 +188,29 @@ async function chooseInstallMode() {
 
 async function main() {
   const rawArgs = process.argv.slice(2);
-  const parsed = parsePreset(rawArgs);
 
-  if (parsed.preset || hasExplicitSelection(rawArgs) || !process.stdin.isTTY || !process.stdout.isTTY) {
+  if (hasHelp(rawArgs)) {
+    printHelp();
+    return;
+  }
+
+  if (hasVersion(rawArgs)) {
+    console.log(VERSION);
+    return;
+  }
+
+  const parsed = parsePreset(rawArgs);
+  const hasSelection = parsed.preset || hasExplicitSelection(rawArgs);
+  const isInteractive = process.stdin.isTTY && process.stdout.isTTY;
+
+  if (hasSelection) {
     spawnSkills(parsed.args);
     return;
+  }
+
+  if (!isInteractive) {
+    printNonInteractiveUsage();
+    process.exit(1);
   }
 
   try {

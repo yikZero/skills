@@ -28,6 +28,15 @@ What do you want to install?
   Install all
 ```
 
+In non-interactive shells, pass a selection explicitly so it cannot accidentally install everything:
+
+```bash
+npx yskill --preset default
+npx yskill --preset frontend
+npx yskill --skill find-docs -a codex -y
+npx yskill --all
+```
+
 For local development before publishing:
 
 ```bash
@@ -66,6 +75,7 @@ scripts/
 - `skill-authoring`: create, update, and validate portable Agent Skills.
 - `tailwind-design-system`: build and audit Tailwind CSS design systems, tokens, variants, and component patterns.
 - `web-ui-audit`: run terse file:line audits against web UI implementation guidelines.
+- `workflow`: install, configure, build, debug, and self-host Workflow SDK workflows, prioritizing TanStack Start, Next.js, and Vite while still linking to broader docs and examples.
 - `pi-coding-agent-sdk`: source-backed workflows and recipes for `@earendil-works/pi-coding-agent` SDK development.
 
 ## Installed Paths
@@ -86,6 +96,7 @@ The default `skills` CLI install mode uses a canonical copy plus symlinks where 
 
 ```bash
 npm run validate
+npm run test:cli
 npx skills@latest add . --list
 npx skills@latest add . --skill design -a claude-code -a codex
 npx skills@latest update design -p -y

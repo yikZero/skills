@@ -1,0 +1,4 @@
+interface:
+  display_name: Workflow SDK
+  short_description: Install and build Workflow SDK apps, prioritizing TanStack Start, Next.js, and Vite.
+  default_prompt: Use Workflow SDK to set up or implement this durable workflow for TanStack Start, Next.js, or Vite.
