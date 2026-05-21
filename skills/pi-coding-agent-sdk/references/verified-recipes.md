@@ -1,6 +1,8 @@
 # Verified SDK Recipes
 
-These recipes were type-checked with `tsc --noEmit` against `@earendil-works/pi-coding-agent@0.74.0`, `@earendil-works/pi-ai@0.74.0`, TypeScript 6.0.3, and NodeNext module resolution. They also ran far enough to create and dispose sessions without sending LLM prompts.
+These recipes were originally type-checked and run far enough to create and dispose sessions against `@earendil-works/pi-coding-agent@0.74.0`. On 2026-05-21, the fragile API shapes in these recipes were refreshed with `tsc --noEmit` against `@earendil-works/pi-coding-agent@0.75.4`, `@earendil-works/pi-ai@0.75.4`, TypeScript 6.0.3, and NodeNext module resolution.
+
+The current `0.75.x` packages require Node.js `>=22.19.0`; the refresh host was Node `22.14.0`, so runtime smoke was not re-run. Re-check against the user's installed package and Node version before presenting a recipe as runtime-verified.
 
 Use them as starting points, then re-check against the user's installed package.
 

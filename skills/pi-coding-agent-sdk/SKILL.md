@@ -45,7 +45,7 @@ Use these sources in order:
 
 Read `references/sdk-development-guide.md` for most SDK development tasks. It covers session creation, runtime sessions, resource loading, skills, prompt templates, tools, extensions, auth, models, settings, events, and persistence.
 
-Read `references/verified-recipes.md` when the user wants code. Prefer these recipes as starting points because they were type-checked against `@earendil-works/pi-coding-agent@0.74.0`.
+Read `references/verified-recipes.md` when the user wants code. Prefer these recipes as starting points because their fragile API shapes were refreshed against `@earendil-works/pi-coding-agent@0.75.4`; still re-check against the user's installed package before presenting code as final.
 
 Read `references/version-notes.md` when examples or docs disagree with local TypeScript types, especially around `tools`, built-in tool exports, `Skill`, `PromptTemplate`, `DefaultResourceLoader`, or cleanup methods.
 
@@ -79,12 +79,15 @@ For examples, tests, and small host integrations:
 
 Check local types before relying on snippets from docs:
 
+- `@earendil-works/pi-coding-agent@0.75.x` requires Node.js `>=22.19.0`.
 - `CreateAgentSessionOptions.tools` can be `string[]`; use tool names such as `"read"` and `"bash"` rather than undocumented constants.
 - Current packages may export `createReadTool()` and `createBashTool()` rather than `readTool` and `bashTool`.
 - `Skill` can require `sourceInfo` and `disableModelInvocation`, not `source: "custom"`.
 - `PromptTemplate` can require `sourceInfo` and `filePath`.
 - `DefaultResourceLoader` can require explicit `cwd` and `agentDir`.
 - `AgentSession` cleanup is `dispose()`. Runtime cleanup is `await runtime.dispose()`.
+- `agent_end` session events include `willRetry`.
+- `resizeImage`, `formatDimensionNote`, and `ResizedImage` are exported from the package root in current packages.
 
 ## Answer Shape
 

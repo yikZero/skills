@@ -58,6 +58,68 @@ This skill is based on current docs, the upstream source tree, installed package
 
 ## Installed Package Types Reviewed
 
+## 2026-05-21 Refresh
+
+Current releases and npm metadata showed `@earendil-works/pi-coding-agent@0.75.4` and `@earendil-works/pi-ai@0.75.4` as latest. The GitHub release train from `v0.74.1` through `v0.75.4` added image support, raised the Node engine to `>=22.19.0`, added package-root image resize utilities, and added `willRetry` to `agent_end` session events.
+
+Temporary package project:
+
+```text
+/var/folders/gy/_sr31cmx1252np3lvgmfbfmh0000gn/T/tmp.gG8VNskc1p
+```
+
+Installed versions:
+
+```text
+@earendil-works/pi-coding-agent@0.75.4
+@earendil-works/pi-ai@0.75.4
+typebox@1.1.38
+typescript@6.0.3
+```
+
+Local runtime:
+
+```text
+node v22.14.0
+npm 10.9.2
+```
+
+The install emitted `EBADENGINE` warnings because current Pi packages require Node `>=22.19.0`. Type checks were still useful, but runtime smoke was intentionally not claimed for this refresh.
+
+Installed type files inspected:
+
+- `node_modules/@earendil-works/pi-coding-agent/dist/index.d.ts`
+- `dist/core/sdk.d.ts`
+- `dist/core/agent-session.d.ts`
+- `dist/core/agent-session-runtime.d.ts`
+- `dist/core/agent-session-services.d.ts`
+- `dist/core/resource-loader.d.ts`
+- `dist/core/skills.d.ts`
+- `dist/core/prompt-templates.d.ts`
+- `dist/core/extensions/types.d.ts`
+- `dist/core/auth-storage.d.ts`
+- `dist/core/model-registry.d.ts`
+- `dist/core/settings-manager.d.ts`
+- `dist/core/source-info.d.ts`
+- `dist/core/tools/index.d.ts`
+- `dist/utils/image-resize.d.ts`
+
+Refresh commands included:
+
+```bash
+npx ctx7@latest library "@earendil-works/pi-coding-agent" "Check latest Pi Coding Agent SDK API changes and release notes for skill updates"
+npx ctx7@latest docs /earendil-works/pi "Pi Coding Agent SDK createAgentSession AgentSessionRuntime DefaultResourceLoader Skill sourceInfo disableModelInvocation AgentSession events willRetry image resize utilities Node 22.19 release 0.75.4"
+gh api repos/earendil-works/pi/releases --jq '.[:8] | map({tag_name, name, published_at, prerelease, body})'
+npm view @earendil-works/pi-coding-agent version dist-tags time --json
+npm view @earendil-works/pi-ai version dist-tags time --json
+npm install --prefix <tmpdir> @earendil-works/pi-coding-agent@latest @earendil-works/pi-ai@latest typescript@latest typebox@latest @types/node@latest
+npx tsc --noEmit
+```
+
+The temporary `check.ts` type-checked `Skill`, `PromptTemplate`, `DefaultResourceLoader`, `defineTool`, `CreateAgentSessionOptions.tools/customTools`, `AgentSessionEvent.agent_end.willRetry`, and package-root image resize exports.
+
+## Original Full Runtime Smoke
+
 Temporary package project:
 
 ```text

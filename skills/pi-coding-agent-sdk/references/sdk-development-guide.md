@@ -8,6 +8,8 @@ The SDK is a Node/TypeScript integration surface for embedding Pi's coding-agent
 
 Use the SDK when the host app is TypeScript or JavaScript and wants direct object-level integration. Use RPC when the host app is another language or needs process isolation.
 
+For current `0.75.x` packages, check that the host Node.js version is at least `22.19.0` before doing runtime validation.
+
 The most important entry points are:
 
 - `createAgentSession()` for one active session.
@@ -70,6 +72,7 @@ Important event patterns:
 - `queue_update` reports steering and follow-up queues.
 - `compaction_start` and `compaction_end` report context compaction.
 - `auto_retry_start` and `auto_retry_end` report retry behavior.
+- `agent_end` includes `willRetry`, so consumers can distinguish final endings from endings followed by SDK retry.
 
 If the session is already streaming, `prompt()` requires `streamingBehavior: "steer"` or `"followUp"`. For clearer host code, call `session.steer()` or `session.followUp()` directly.
 
@@ -236,9 +239,21 @@ Common settings include:
 - package resource sources
 - skill commands
 - terminal and image handling
+- image auto-resize and image blocking
 - custom session directory
+- HTTP idle timeout
 
 If file-backed settings are modified during a run, call `await settingsManager.flush()` before process exit or test assertions that depend on written settings.
+
+## Image Utilities
+
+Current packages export image helpers from the package root:
+
+- `resizeImage(image, options?)`
+- `formatDimensionNote(result)`
+- `type ResizedImage`
+
+Use these when SDK consumers need the same image-resize behavior as Pi before sending images to models. Current `ImageContent` from `@earendil-works/pi-ai` has the shape `{ type: "image", data, mimeType }`, not a nested `source` object.
 
 ## Sessions And Persistence
 
@@ -296,11 +311,12 @@ When SDK code fails:
 
 1. Run `npm view @earendil-works/pi-coding-agent version exports types`.
 2. Inspect installed `.d.ts` files.
-3. Confirm the project is ESM if using top-level `await`.
-4. Confirm `tools` is a string allowlist in the installed version.
-5. Confirm virtual `Skill` and `PromptTemplate` objects include the required metadata.
-6. Confirm `DefaultResourceLoader` got `cwd` and `agentDir`.
-7. Confirm `await loader.reload()` ran before session creation.
-8. Confirm custom tool names are included in `tools` when an allowlist is present.
-9. Confirm no secrets are hardcoded in code or docs.
-10. Compile with `tsc --noEmit` before claiming the code is working.
+3. Confirm the local Node.js version satisfies the installed package `engines.node`.
+4. Confirm the project is ESM if using top-level `await`.
+5. Confirm `tools` is a string allowlist in the installed version.
+6. Confirm virtual `Skill` and `PromptTemplate` objects include the required metadata.
+7. Confirm `DefaultResourceLoader` got `cwd` and `agentDir`.
+8. Confirm `await loader.reload()` ran before session creation.
+9. Confirm custom tool names are included in `tools` when an allowlist is present.
+10. Confirm no secrets are hardcoded in code or docs.
+11. Compile with `tsc --noEmit` before claiming the code is working.
