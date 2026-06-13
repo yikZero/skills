@@ -43,6 +43,7 @@ or run only a docs/context bootstrap after explicit user confirmation.
 3. Run best-practice discovery before choosing the final setup.
    Read `references/best-practice-discovery.md`.
    - Always run both a web search pass and a current docs lookup pass for the app type, likely stack, validation, project structure, and current generator commands.
+   - Use project-local `.agents/skills/find-docs` when the target project already exists. If it is missing and the target path exists, install it with `npx skills@latest add yikZero/skills --skill find-docs -a codex -y` before the docs lookup.
    - Prefer official docs, primary sources, and current framework guidance for stack-specific setup. Use web search for project-type practices, repository hygiene, alternatives, and gaps not covered by official docs.
    - Treat personal defaults as defaults, not fixed law. If current best practice suggests a better route, package manager, validator, framework, or project structure, recommend it and record the reason.
    - If `INIT.md` does not exist yet, keep compact discovery notes in the working context, then write them into `INIT.md` immediately after creating the baseline.
@@ -64,6 +65,11 @@ or run only a docs/context bootstrap after explicit user confirmation.
          bun <this-skill>/scripts/bootstrap-project.ts --path <target> --name "<Project Name>" --description "<one sentence>" --profile <typescript|python|generic> --package-manager <auto|bun|pnpm|npm|uv|none>
 
      This writes `.codex/config.toml`, `AGENTS.md`, `README.md`, `PRODUCT.md`, `ROADMAP.md`, `CODESTYLE.md`, `DESIGN.md`, `ARCHITECTURE.md`, `INIT.md`, and `.agents/skills/*`. Depending on the profile, it also writes `package.json`/`biome.json`/`tsconfig.json`/Vitest files or `pyproject.toml`/Makefile/Ruff/pytest files.
+   - Install `find-docs` into the target project as a project-local skill by default:
+
+         cd <target> && npx skills@latest add yikZero/skills --skill find-docs -a codex -y
+
+     This should create `.agents/skills/find-docs`. Do not copy or vendor the `find-docs` source into this skill's templates.
    - Immediately replace the `Best-Practice Discovery` placeholders in `INIT.md` with the sources checked, decisions, rejected alternatives, and better-than-default suggestions.
    - Template maintenance rule: generated file contents live under `assets/templates/`. Keep `scripts/bootstrap-project.ts` as a small typed renderer/profile registry. When changing generated docs or manifests, edit templates first; only edit the script for argument parsing, profile selection, or placeholder wiring.
    - Do not maintain exact external tool or dependency versions in this skill. Let the selected package manager resolve current versions and let the generated project lockfile record them.
@@ -82,6 +88,7 @@ or run only a docs/context bootstrap after explicit user confirmation.
    Default to creating `ROADMAP.md`, `CODESTYLE.md`, and `DESIGN.md` too; this is a personal template, not a generic minimal scaffold.
 
 8. Recommend and install skills deliberately. Read `references/skill-recommendation.md`.
+   - Treat `find-docs` as the default required project-local skill for initialized projects unless the user explicitly opts out.
    - Prefer this catalog's `yskill` presets for common needs.
    - Run `npx skills find "<query>"` for project-specific needs.
    - Inspect candidate skills before recommending them.

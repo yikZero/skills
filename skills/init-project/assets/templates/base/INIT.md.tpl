@@ -34,15 +34,16 @@ to be selected.
 ## Plan of Work
 
 1. Confirm the first target user and first useful workflow.
-2. Run both web search and docs lookup for best-practice discovery, then record sources, findings, and better-than-default suggestions here.
-3. Select the smallest stack that can implement that workflow.
-4. For known stacks, use the official generator or setup flow after verifying current docs.
-5. For project types outside the preset routes, keep this baseline generic, record the stack-specific assumptions, and add only the tooling the first workflow requires.
-6. Preserve the selected package manager unless current best practice or official tooling makes another choice better.
-7. Add stack-specific lint, typecheck, build, browser, integration, or deployment validation.
-8. Implement the first thin workflow slice.
-9. Update durable control docs so they match the implemented behavior.
-10. Delete `INIT.md` once the setup slice is complete and no longer contains unique truth.
+2. Install `.agents/skills/find-docs` project-locally from `yikZero/skills` unless it already exists.
+3. Run both web search and docs lookup for best-practice discovery, then record sources, findings, and better-than-default suggestions here.
+4. Select the smallest stack that can implement that workflow.
+5. For known stacks, use the official generator or setup flow after verifying current docs.
+6. For project types outside the preset routes, keep this baseline generic, record the stack-specific assumptions, and add only the tooling the first workflow requires.
+7. Preserve the selected package manager unless current best practice or official tooling makes another choice better.
+8. Add stack-specific lint, typecheck, build, browser, integration, or deployment validation.
+9. Implement the first thin workflow slice.
+10. Update durable control docs so they match the implemented behavior.
+11. Delete `INIT.md` once the setup slice is complete and no longer contains unique truth.
 
 ## Validation
 
@@ -59,5 +60,6 @@ Add stack-specific commands before product code is considered complete.
 - The first workflow is described in `PRODUCT.md`.
 - The selected stack and boundaries are described in `ARCHITECTURE.md`.
 - Canonical commands are listed in `README.md` and `AGENTS.md`.
+- `.agents/skills/find-docs` is installed or the opt-out reason is recorded.
 - `{{VALIDATE_COMMAND}}` passes.
 - `INIT.md` is deleted after its remaining decisions have been captured in durable docs.

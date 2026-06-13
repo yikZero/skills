@@ -28,14 +28,14 @@ Add stack-specific browser screenshot, CI, deployment smoke, or pre-commit comma
 ## Repo-Local Skills
 
 - `.agents/skills/project-bootstrap`: use when turning this baseline into the first real stack and workflow.
+- `.agents/skills/find-docs`: use for current framework, SDK, API, and CLI documentation. This should be installed from `yikZero/skills` during initialization.
 - `.agents/skills/ask-questions-if-underspecified`: use when missing decisions would cause churn.
 - `.agents/skills/review-ui-screenshots`: use for frontend visual review after UI changes.
 
-## Recommended Global Skills
+## Recommended Additional Skills
 
 Install reusable skills deliberately instead of copying their instructions into this repo.
 
-- `find-docs`: current framework, SDK, API, and CLI documentation.
 - `remove-ai-slop`: clean generated-looking diffs before commit or review.
 - `learn-to-agents`: save durable project discoveries to scoped agent docs.
 - `diagnose`: reproduce, minimize, instrument, and fix hard bugs.

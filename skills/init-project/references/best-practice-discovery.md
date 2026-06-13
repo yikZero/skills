@@ -11,9 +11,17 @@ search just because official docs are available.
 
 ```bash
 web search: <app type> <platform-or-stack> project setup best practices current
+project skill: .agents/skills/find-docs
 npx ctx7@latest library <framework-or-tool> "<setup best practices generator lint test config>"
 npx ctx7@latest docs <selected-doc-id> "<current init command project structure lint test config>"
 npx skills find "<app-type-or-stack> setup"
+```
+
+If `.agents/skills/find-docs` is missing in an existing target project, install
+it project-locally before the docs lookup:
+
+```bash
+npx skills@latest add yikZero/skills --skill find-docs -a codex -y
 ```
 
 Run additional web searches when the app type, platform, repository hygiene,
