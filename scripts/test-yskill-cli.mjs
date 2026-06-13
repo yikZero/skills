@@ -32,7 +32,14 @@ function expect(condition, message) {
   const result = run(['--help']);
   expect(result.status === 0, '--help should exit 0');
   expect(result.stdout.includes('Usage:'), '--help should print usage');
+  expect(result.stdout.includes('init-project, find-docs'), '--help should document init preset');
   expect(!result.stdout.includes('Installing'), '--help should not install skills');
+}
+
+{
+  const result = run(['--preset=unknown']);
+  expect(result.status === 1, 'unknown preset should exit 1');
+  expect(result.stderr.includes('init, default, core, frontend'), 'unknown preset should list valid presets');
 }
 
 {

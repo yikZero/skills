@@ -7,6 +7,7 @@ This repository is designed to work with the `skills` CLI:
 ```bash
 npx yskill
 npx yskill --list
+npx yskill --preset init
 npx yskill --preset frontend
 npx yskill --skill design -a claude-code -a codex
 ```
@@ -22,7 +23,8 @@ With no arguments, `npx yskill` opens a menu:
 
 ```text
 What do you want to install?
-> Core recommended
+> Project init
+  Core recommended
   Frontend bundle
   Pick individual skills
   Install all
@@ -31,6 +33,7 @@ What do you want to install?
 In non-interactive shells, pass a selection explicitly so it cannot accidentally install everything:
 
 ```bash
+npx yskill --preset init
 npx yskill --preset default
 npx yskill --preset frontend
 npx yskill --skill find-docs -a codex -y
@@ -111,6 +114,7 @@ Run real remote installs from a consuming project, not this source repository:
 
 ```bash
 npx yskill
+npx yskill --preset init
 npx yskill --preset default
 npx yskill --preset frontend
 npx yskill --skill design -a claude-code -a codex

@@ -19,6 +19,7 @@ This repository also publishes a thin npm shortcut:
 ```bash
 npx yskill
 npx yskill --list
+npx yskill --preset init
 npx yskill --preset frontend
 npx yskill --skill find-docs -a codex
 ```
@@ -27,12 +28,14 @@ npx yskill --skill find-docs -a codex
 
 ```text
 What do you want to install?
-> Core recommended
+> Project init
+  Core recommended
   Frontend bundle
   Pick individual skills
   Install all
 ```
 
+`--preset init` expands to `init-project` and `find-docs`.
 `--preset default` expands to `find-docs`, `remove-ai-slop`, and `learn-to-agents`.
 `--preset frontend` expands to the default set plus `design`, `web-ui-audit`, `react-performance`, `react-composition`, `shadcn-ui`, and `tailwind-design-system`.
 In non-interactive shells, `yskill` requires an explicit selection such as `--preset`, `--skill`, `--all`, or `--list`; it must not fall through to the upstream CLI's default install behavior.

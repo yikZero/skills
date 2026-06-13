@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 
 const SOURCE = 'yikZero/skills';
 const VERSION = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version;
+const INIT_SKILLS = ['init-project', 'find-docs'];
 const CORE_SKILLS = ['find-docs', 'remove-ai-slop', 'learn-to-agents'];
 const FRONTEND_SKILLS = [
   ...CORE_SKILLS,
@@ -17,6 +18,7 @@ const FRONTEND_SKILLS = [
 ];
 
 const PRESETS = new Map([
+  ['init', INIT_SKILLS],
   ['default', CORE_SKILLS],
   ['core', CORE_SKILLS],
   ['frontend', FRONTEND_SKILLS],
@@ -70,7 +72,7 @@ function parsePreset(args) {
     if (arg === '--preset') {
       preset = args[index + 1];
       if (!preset || preset.startsWith('-')) {
-        console.error('Missing value for --preset. Use one of: default, core, frontend');
+        console.error('Missing value for --preset. Use one of: init, default, core, frontend');
         process.exit(1);
       }
       index += 1;
@@ -123,12 +125,13 @@ function printHelp() {
 
 Usage:
   npx yskill
-  npx yskill --preset <default|core|frontend> [skills options]
+  npx yskill --preset <init|default|core|frontend> [skills options]
   npx yskill --skill <name> [skills options]
   npx yskill --all [skills options]
   npx yskill --list
 
 Presets:
+  init           ${INIT_SKILLS.join(', ')}
   default, core  ${CORE_SKILLS.join(', ')}
   frontend       ${FRONTEND_SKILLS.join(', ')}
 
@@ -149,6 +152,7 @@ function printNonInteractiveUsage() {
   console.error(`yskill needs an explicit selection in non-interactive shells.
 
 Use one of:
+  npx yskill --preset init
   npx yskill --preset default
   npx yskill --preset frontend
   npx yskill --skill find-docs -a codex -y
@@ -162,6 +166,11 @@ async function chooseInstallMode() {
   return select({
     message: 'What do you want to install?',
     choices: [
+      {
+        name: 'Project init',
+        value: 'init',
+        description: INIT_SKILLS.join(', '),
+      },
       {
         name: 'Core recommended',
         value: 'core',
@@ -215,6 +224,11 @@ async function main() {
 
   try {
     const mode = await chooseInstallMode();
+
+    if (mode === 'init') {
+      spawnSkills(withSkills(parsed.args, INIT_SKILLS));
+      return;
+    }
 
     if (mode === 'core') {
       spawnSkills(withSkills(parsed.args, CORE_SKILLS));
