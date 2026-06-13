@@ -25,7 +25,8 @@ supports:
 npx yskill --preset init -a codex -y
 ```
 
-The `init` preset expands to `init-project` and `find-docs`.
+The `init` preset expands to `init-project`. The init workflow then installs
+`find-docs` into the target project as a project-local skill.
 
 ## Local Catalog Defaults
 
