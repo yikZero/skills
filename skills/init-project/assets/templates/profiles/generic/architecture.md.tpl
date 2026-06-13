@@ -1,0 +1,4 @@
+- Profile: generic docs/context baseline.
+- Runtime: not selected.
+- Package manager: not selected.
+- Validation: git whitespace check only until a stack is selected.

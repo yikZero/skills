@@ -1,0 +1,5 @@
+- Profile: Python.
+- Package manager/tool runner: uv.
+- Formatter and lint: Ruff.
+- Tests: pytest.
+- Source package: `src/{{PYTHON_PACKAGE}}/`.

@@ -1,0 +1,4 @@
+interface:
+  display_name: Init Project
+  short_description: Bootstrap a profile-aware personal AI-ready project with best-practice discovery, Biome, Codex config, control docs, validation, and INIT.md.
+  default_prompt: Use Init Project to create a personal project baseline for an idea, first running a network/docs best-practice discovery pass, then choosing TypeScript/Bun or pnpm/npm with Biome, Python/uv, generic docs, or a flexible route for platform-specific apps, including .codex/config.toml, PRODUCT.md, AGENTS.md, repo-local skills, validation, skill recommendations, and temporary INIT.md.

@@ -1,0 +1,5 @@
+- Profile: TypeScript.
+- Package manager: {{PACKAGE_MANAGER}}.
+- Formatter/linter/import organize: Biome.
+- Typecheck: TypeScript `tsc --noEmit`.
+- Tests: Vitest.
