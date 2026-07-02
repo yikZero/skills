@@ -52,6 +52,7 @@ npx skills add /path/to/skills --skill design -a claude-code -a codex
 ```text
 skills/
   <skill-name>/
+    README.md
     SKILL.md
     references/
     scripts/
@@ -64,7 +65,7 @@ scripts/
   validate-skills.mjs
 ```
 
-`skills/` is the only installable catalog. Put drafts in `skills/.experimental/` only when they are valid but intentionally hidden from normal installs by `metadata.internal: true`.
+`skills/` is the only installable catalog. Each skill has a short `README.md` for GitHub browsing and install commands; `SKILL.md` remains the agent entrypoint. Put drafts in `skills/.experimental/` only when they are valid but intentionally hidden from normal installs by `metadata.internal: true`.
 
 ## Included Skills
 
