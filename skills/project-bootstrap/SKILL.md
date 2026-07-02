@@ -1,15 +1,15 @@
 ---
-name: init-project
-description: Initialize a new personal greenfield project for AI-assisted development using yikzero's preferred profile-aware defaults. Use when the user wants to create, set up, bootstrap, or initialize a new project/repo with project name and feature intake, a required network best-practice discovery pass, TypeScript/Bun/pnpm/npm with Biome formatting/linting, Next.js/shadcn/TanStack/Base UI/Tailwind-friendly setup, Python/uv tooling, unsupported or unusual app-type routing such as mini programs, framework selection, recommended skills, lint/test/typecheck setup, .codex/config.toml, PRODUCT.md, AGENTS.md, architecture/context docs, repo-local helper skills, or a temporary INIT.md. Not for integrating into an existing non-empty application unless explicitly requested.
+name: project-bootstrap
+description: Turn a new product, app, automation, or library idea into a ready-to-build project baseline. Use when the user wants to create, bootstrap, or initialize a fresh project with a compact brief, current docs/best-practice discovery, framework or runtime selection, repository structure, validation commands, control docs such as PRODUCT.md and AGENTS.md, repo-local helper skills, and a first-workflow handoff. Supports TypeScript/Bun/pnpm/npm, Python/uv, generic docs-only baselines, and framework-generator overlays. Not for adding features to an existing application unless the user explicitly asks for a docs/context bootstrap.
 ---
 
-# Init Project
+# Project Bootstrap
 
-Use this skill to turn a product idea into a new personal repository baseline
-that humans and coding agents can continue from. This is an opinionated
-greenfield initialization workflow: profile-aware tooling, Codex-first durable
-control docs, repo-local helper skills, validation commands, skill
-recommendations, and a temporary `INIT.md` for the setup slice.
+Use this skill to turn a product or software idea into a repository baseline
+that humans and coding agents can continue from. This is a greenfield
+initialization workflow: compact intake, current-docs discovery, durable control
+docs, repo-local helper skills, validation commands, and a temporary `INIT.md`
+for the setup slice.
 
 ## Core Rule
 
@@ -38,21 +38,21 @@ or run only a docs/context bootstrap after explicit user confirmation.
    - Project profile: `typescript`, `python`, or `generic`. Default to `typescript` for JS/TS/web ideas, `python` for Python tools/APIs/data work, and `generic` only when no runtime should be selected yet.
    - Package manager only if the profile default is not suitable. Defaults: TypeScript -> Bun, Python -> uv, generic -> none. For TypeScript/Node projects, allow `bun`, `pnpm`, or `npm`.
    - Validation expectations: lint, format, typecheck, unit tests, browser screenshots, CI, or pre-commit hooks.
-   - Whether the user wants a separate template repository route, the built-in personal baseline, or official generator plus personal overlays.
+   - Whether the user wants a separate template repository route, the built-in baseline, or official generator plus project overlays.
 
 3. Run best-practice discovery before choosing the final setup.
    Read `references/best-practice-discovery.md`.
    - Always run both a web search pass and a current docs lookup pass for the app type, likely stack, validation, project structure, and current generator commands.
    - Use project-local `.agents/skills/find-docs` when the target project already exists. If it is missing and the target path exists, install it with `npx skills@latest add yikZero/skills --skill find-docs -a codex -y` before the docs lookup.
    - Prefer official docs, primary sources, and current framework guidance for stack-specific setup. Use web search for project-type practices, repository hygiene, alternatives, and gaps not covered by official docs.
-   - Treat personal defaults as defaults, not fixed law. If current best practice suggests a better route, package manager, validator, framework, or project structure, recommend it and record the reason.
+   - Treat catalog defaults as defaults, not fixed law. If current best practice suggests a better route, package manager, validator, framework, or project structure, recommend it and record the reason.
    - If `INIT.md` does not exist yet, keep compact discovery notes in the working context, then write them into `INIT.md` immediately after creating the baseline.
 
 4. Choose a route. Read `references/routes.md` before deciding.
-   - Personal baseline route: default for unclear stacks, small tools, and unsupported-by-template app types. Run `scripts/bootstrap-project.ts` with Bun to create a profile-aware xklob-style project baseline with `.codex/config.toml`, root control docs, repo-local skills, package scripts or equivalent commands, and `INIT.md`.
+   - Baseline route: default for unclear stacks, small tools, and unsupported-by-template app types. Run `scripts/bootstrap-project.ts` with Bun to create a project baseline with `.codex/config.toml`, root control docs, repo-local skills, package scripts or equivalent commands, and `INIT.md`.
    - External template route: use or create a separate template repository when the user explicitly wants a reusable GitHub template repo.
    - Framework route: run the official framework generator first when the stack choice is clear, then add this skill's control docs, agent instructions, validation expectations, and `INIT.md` semantics.
-   - Flexible route: for app types outside the known profiles, verify the current official docs, keep only the stable personal control surface, and record stack-specific setup rather than forcing a mismatched template.
+   - Flexible route: for app types outside the known profiles, verify the current official docs, keep only the stable project control surface, and record stack-specific setup rather than forcing a mismatched template.
 
 5. Verify current docs for version-sensitive commands.
    Use the local `find-docs`/Context7 workflow or official docs for current
@@ -60,7 +60,7 @@ or run only a docs/context bootstrap after explicit user confirmation.
    syntax. Do not guess commands for fast-moving tools.
 
 6. Create the baseline.
-   - For the personal baseline route, run:
+   - For the baseline route, run:
 
          bun <this-skill>/scripts/bootstrap-project.ts --path <target> --name "<Project Name>" --description "<one sentence>" --profile <typescript|python|generic> --package-manager <auto|bun|pnpm|npm|uv|none>
 
@@ -85,7 +85,7 @@ or run only a docs/context bootstrap after explicit user confirmation.
    - `AGENTS.md` for agent rules, validation commands, skill recommendations, and boundaries.
    - `ARCHITECTURE.md` for intended structure, boundaries, dependencies, and extension points.
    - `INIT.md` for the setup slice; delete it after completion once durable docs contain the remaining truth.
-   Default to creating `ROADMAP.md`, `CODESTYLE.md`, and `DESIGN.md` too; this is a personal template, not a generic minimal scaffold.
+   Default to creating `ROADMAP.md`, `CODESTYLE.md`, and `DESIGN.md` too; this is a full project baseline, not a bare package scaffold.
 
 8. Recommend and install skills deliberately. Read `references/skill-recommendation.md`.
    - Treat `find-docs` as the default required project-local skill for initialized projects unless the user explicitly opts out.

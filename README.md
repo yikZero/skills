@@ -71,7 +71,7 @@ scripts/
 - `design`: focused frontend UI review and refinement workflow adapted from `pbakaus/impeccable`, exposed as `audit`, `critique`, `polish`, `harden`, `layout`, `typeset`, `colorize`, `clarify`, and `distill`.
 - `chat-sdk`: build and review Vercel Chat SDK bots across Slack, GitHub, Discord, Teams, and other chat platforms using SDK-native adapters, events, streaming, state, cards, and webhooks.
 - `find-docs`: Context7 CLI workflow for fetching current library, framework, SDK, API, and CLI documentation.
-- `init-project`: initialize new profile-aware personal AI-ready projects with a required network/docs best-practice discovery pass, TypeScript/Bun or pnpm/npm plus Biome, Python/uv, `.codex/config.toml`, product/context intake, root control docs, repo-local helper skills, validation setup, skill recommendations, flexible platform routing, and temporary `INIT.md`.
+- `project-bootstrap`: turn a new product, app, automation, or library idea into a ready-to-build project baseline with current-docs discovery, runtime or framework selection, control docs, repo-local helper skills, validation, and a first-workflow handoff.
 - `karpathy-guidelines`: behavioral guardrails inspired by Andrej Karpathy's observations for reducing overcomplication, broad edits, hidden assumptions, and unverifiable coding work.
 - `learn-to-agents`: capture durable project discoveries in the nearest scoped `AGENTS.md`.
 - `remove-ai-slop`: clean generated-looking code from diffs before review or commit.
@@ -82,7 +82,7 @@ scripts/
 - `tailwind-design-system`: build and audit Tailwind CSS design systems, tokens, variants, and component patterns.
 - `web-ui-audit`: run terse file:line audits against web UI implementation guidelines.
 - `workflow`: install, configure, build, debug, and self-host Workflow SDK workflows, prioritizing TanStack Start, Next.js, and Vite while still linking to broader docs and examples.
-- `pi-coding-agent-sdk`: source-backed workflows and recipes for `@earendil-works/pi-coding-agent` SDK development.
+- `pi-coding-agent-sdk`: source-backed workflows and recipes for embedding Pi Coding Agent SDK sessions, runtime flows, custom tools, custom skills, resource loading, streaming events, and test harnesses in TypeScript host apps.
 
 ## Installed Paths
 

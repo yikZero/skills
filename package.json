@@ -1,6 +1,6 @@
 {
   "name": "yskill",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Shortcut CLI for installing yikZero/skills with the skills CLI.",
   "type": "module",
   "bin": {

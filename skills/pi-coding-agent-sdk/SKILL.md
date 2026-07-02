@@ -1,11 +1,14 @@
 ---
 name: pi-coding-agent-sdk
-description: Use this skill for all @earendil-works/pi-coding-agent, pi-coding-agent, Pi Coding Agent SDK, and Pi Agents SDK development questions. Trigger on createAgentSession, AgentSessionRuntime, defineTool, customTools, DefaultResourceLoader, custom skill injection, Skill.source/sourceInfo errors, AuthStorage, ModelRegistry, SettingsManager, SessionManager, in-memory test harnesses, streaming events, prompt queues, resource loading, SDK vs RPC, API key/OAuth setup, and TypeScript SDK mismatches. Do not use for unrelated translation, CSS/UI, React review, or general OAuth.
+description: Build, debug, and verify TypeScript integrations with the Pi Coding Agent SDK. Use when a host app needs embedded coding-agent sessions, runtime session management, custom tools, custom skills, resource loading, prompt queues, streaming events, auth/model/settings/session persistence, SDK-vs-RPC decisions, in-memory test harnesses, API-key/OAuth setup, or fixes for TypeScript mismatches against @earendil-works/pi-coding-agent. Do not use for unrelated translation, CSS/UI, React review, or general OAuth.
 ---
 
 # Pi Coding Agent SDK
 
-Use this skill to design, debug, or implement integrations with `@earendil-works/pi-coding-agent`.
+Use this skill to design, debug, or implement host-app integrations with
+`@earendil-works/pi-coding-agent`: embedded coding-agent sessions, runtime
+session flows, custom tools and skills, resource loading, streaming events, and
+SDK type mismatches.
 
 ## Working Rule
 

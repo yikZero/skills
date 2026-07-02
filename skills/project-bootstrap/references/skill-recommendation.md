@@ -25,12 +25,12 @@ supports:
 npx yskill --preset init -a codex -y
 ```
 
-The `init` preset expands to `init-project`. The init workflow then installs
+The `init` preset expands to `project-bootstrap`. The init workflow then installs
 `find-docs` into the target project as a project-local skill.
 
 ## Local Catalog Defaults
 
-Use this repository's installer for known-good personal skills. The generated
+Use this repository's installer for known-good reusable skills. The generated
 project should document these in `AGENTS.md`, but do not install all of them
 unless the current project needs them.
 
@@ -75,7 +75,7 @@ npx skills find "agents md"
 Inspect candidates with `npx skills use <owner/repo@skill>` before recommending
 or installing. Check for:
 
-- hard-coded personal workflow
+- hard-coded local workflow
 - vendor lock-in
 - stale commands
 - unexpected scripts

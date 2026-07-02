@@ -35,7 +35,7 @@ What do you want to install?
   Install all
 ```
 
-`--preset init` expands to `init-project`. The init workflow installs
+`--preset init` expands to `project-bootstrap`. The init workflow installs
 `find-docs` into the target project as a project-local skill.
 `--preset default` expands to `find-docs`, `remove-ai-slop`, and `learn-to-agents`.
 `--preset frontend` expands to the default set plus `design`, `web-ui-audit`, `react-performance`, `react-composition`, `shadcn-ui`, and `tailwind-design-system`.

@@ -1,0 +1,4 @@
+interface:
+  display_name: Project Bootstrap
+  short_description: Turn a new product or software idea into a ready-to-build repo with docs, tooling, validation, and agent workflow.
+  default_prompt: Use Project Bootstrap to create a fresh project baseline for an idea: gather a compact brief, check current docs and best practices, choose a runtime or framework route, create control docs such as PRODUCT.md and AGENTS.md, add validation commands and repo-local helper skills, and leave a clear first-workflow handoff.

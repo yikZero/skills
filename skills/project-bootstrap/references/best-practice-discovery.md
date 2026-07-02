@@ -53,7 +53,7 @@ guides without corroboration.
 
 Check whether the user's defaults should be kept or adjusted:
 
-- route: personal baseline, official generator, external template, or flexible
+- route: baseline, official generator, external template, or flexible
   platform route
 - package manager: Bun by default for TypeScript, but switch to pnpm/npm when
   official tooling or ecosystem friction makes that better

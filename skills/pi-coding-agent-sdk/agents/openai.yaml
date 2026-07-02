@@ -1,0 +1,4 @@
+interface:
+  display_name: Pi Coding Agent SDK
+  short_description: Build embedded coding-agent sessions, custom tools, skills, events, and test harnesses with the Pi SDK.
+  default_prompt: Use Pi Coding Agent SDK to integrate an embedded coding agent into a TypeScript host app, choosing direct SDK, runtime SDK, services, extension, or RPC mode, then verify custom tools, resource loading, streaming events, auth, settings, persistence, and TypeScript API shape against the installed package.

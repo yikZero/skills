@@ -1,16 +1,14 @@
 # Control Documents
 
-Control documents are durable project truth. This personal template creates a
-full control-document set by default, following the same broad idea as
-`xklob/codex-repo-template` but with yikzero's profile-aware tooling
-preferences.
+Control documents are durable project truth. This template creates a full
+control-document set by default so humans and coding agents share the same
+project operating surface.
 
 ## Minimum Set
 
 ### `.codex/config.toml`
 
-Owns project-scoped Codex defaults. The generated file mirrors the shape of the
-xklob template:
+Owns project-scoped Codex defaults. The generated file records:
 
 - model defaults
 - reasoning effort defaults
@@ -86,7 +84,7 @@ Delete `INIT.md` after the setup slice is complete and its durable facts
 have been moved into `README.md`, `PRODUCT.md`, `AGENTS.md`,
 `ARCHITECTURE.md`, `CODESTYLE.md`, `DESIGN.md`, or `ROADMAP.md`.
 
-## Default Personal Set
+## Default Baseline Set
 
 - `ROADMAP.md`: future direction, priorities, non-priorities.
 - `CODESTYLE.md`: language conventions, lint/format policy, comments, file size.

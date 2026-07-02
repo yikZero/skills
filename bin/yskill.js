@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 
 const SOURCE = 'yikZero/skills';
 const VERSION = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version;
-const INIT_SKILLS = ['init-project'];
+const INIT_SKILLS = ['project-bootstrap'];
 const CORE_SKILLS = ['find-docs', 'remove-ai-slop', 'learn-to-agents'];
 const FRONTEND_SKILLS = [
   ...CORE_SKILLS,

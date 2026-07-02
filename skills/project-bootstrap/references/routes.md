@@ -1,21 +1,21 @@
 # Initialization Routes
 
-Choose the route that best matches the user's intent while preserving yikzero's
-personal defaults: Codex-first durable control docs, explicit validation, and a
+Choose the route that best matches the user's intent while preserving the
+baseline defaults: Codex-first durable control docs, explicit validation, and a
 small selected tooling profile.
 
 All routes require a best-practice discovery pass first. Use official docs,
 targeted web search, and `npx skills find` to check current setup practice,
 then record accepted and rejected decisions in `INIT.md`.
 
-## Personal Baseline Route
+## Baseline Route
 
 This is the default route.
 
 Use it when the user wants a new project and has not explicitly asked to start
 from an external framework or GitHub template. Also use it when the app type is
 outside the supported presets and forcing a framework template would be a guess.
-It creates an xklob-inspired but personal baseline:
+It creates a project baseline:
 
 - rich root control documents
 - `.codex/config.toml`
@@ -46,8 +46,7 @@ remain a typed renderer and profile registry.
 ## External Template Route
 
 Use this only when the user explicitly wants a standalone template repository or
-to base the project directly on a public template such as
-`xklob/codex-repo-template`.
+to base the project directly on an existing public template.
 
 Process:
 
@@ -92,19 +91,19 @@ Process:
    profile only for commands and validation.
 4. Keep `.codex/config.toml`, `PRODUCT.md`, `AGENTS.md`, `ARCHITECTURE.md`,
    `ROADMAP.md`, `CODESTYLE.md`, `DESIGN.md`, repo-local skills, and temporary
-   `INIT.md` as the stable personal overlay.
+   `INIT.md` as the stable project overlay.
 5. Record platform-specific commands in `README.md` and `AGENTS.md`, then run
    them before finishing.
 
 ## Route Selection Heuristics
 
-- New product with unclear stack: personal baseline route.
-- New product with strong AI/process needs: personal baseline route.
+- New product with unclear stack: baseline route.
+- New product with strong AI/process needs: baseline route.
 - User says "make a reusable template repo": external template route, then ask
   before creating/publishing a GitHub repository.
 - Next.js, Vite, FastAPI, Rust CLI, or similar already chosen: framework route.
 - Mini program or other platform-specific app: flexible route unless the exact
-  official generator is already clear, then framework route plus personal overlay.
-- User says "just set up context/docs": personal baseline route, optionally skip
+  official generator is already clear, then framework route plus project overlay.
+- User says "just set up context/docs": baseline route, optionally skip
   framework tooling.
-- User says "make it robust for agents from day one": personal baseline route.
+- User says "make it robust for agents from day one": baseline route.
