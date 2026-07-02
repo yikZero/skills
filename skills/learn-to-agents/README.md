@@ -5,7 +5,7 @@ Capture durable project discoveries in the nearest scoped AGENTS.md file.
 ## Install
 
 ```bash
-npx yskill --skill learn-to-agents -a codex -y
+npx yskill --skill learn-to-agents
 ```
 
 ## Entry

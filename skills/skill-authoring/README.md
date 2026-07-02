@@ -5,7 +5,7 @@ Create, update, and validate portable Agent Skills for Codex and Claude Code.
 ## Install
 
 ```bash
-npx yskill --skill skill-authoring -a codex -y
+npx yskill --skill skill-authoring
 ```
 
 ## Entry

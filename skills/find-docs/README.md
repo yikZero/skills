@@ -5,7 +5,7 @@ Fetch current library, framework, SDK, API, and CLI documentation with Context7.
 ## Install
 
 ```bash
-npx yskill --skill find-docs -a codex -y
+npx yskill --skill find-docs
 ```
 
 ## Entry

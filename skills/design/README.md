@@ -5,7 +5,7 @@ Review and refine frontend UI, UX, layout, typography, color, and production pol
 ## Install
 
 ```bash
-npx yskill --skill design -a codex -y
+npx yskill --skill design
 ```
 
 ## Entry

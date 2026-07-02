@@ -5,7 +5,7 @@ Build and review bots with Vercel Chat SDK and platform adapters.
 ## Install
 
 ```bash
-npx yskill --skill chat-sdk -a codex -y
+npx yskill --skill chat-sdk
 ```
 
 ## Entry

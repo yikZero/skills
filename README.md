@@ -9,14 +9,14 @@ npx yskill
 npx yskill --list
 npx yskill --preset init
 npx yskill --preset frontend
-npx yskill --skill design -a claude-code -a codex
+npx yskill --skill design
 ```
 
 `yskill` is a small npm shortcut around:
 
 ```bash
 npx skills add yikZero/skills --list
-npx skills add yikZero/skills --skill design -a claude-code -a codex
+npx skills add yikZero/skills --skill design
 ```
 
 With no arguments, `npx yskill` opens a menu:
@@ -36,15 +36,19 @@ In non-interactive shells, pass a selection explicitly so it cannot accidentally
 npx yskill --preset init
 npx yskill --preset default
 npx yskill --preset frontend
-npx yskill --skill find-docs -a codex -y
+npx yskill --skill find-docs
 npx yskill --all
 ```
+
+Add agent flags only when you want to target a specific app, for example
+`-a codex`, `-a claude-code`, or both. Add `-y` only for non-interactive
+installs.
 
 For local development before publishing:
 
 ```bash
 npx skills add /path/to/skills --list
-npx skills add /path/to/skills --skill design -a claude-code -a codex
+npx skills add /path/to/skills --skill design
 ```
 
 ## Layout
@@ -105,7 +109,7 @@ The default `skills` CLI install mode uses a canonical copy plus symlinks where 
 npm run validate
 npm run test:cli
 npx skills@latest add . --list
-npx skills@latest add . --skill design -a claude-code -a codex
+npx skills@latest add . --skill design
 npx skills@latest update design -p -y
 ```
 
@@ -118,8 +122,8 @@ npx yskill
 npx yskill --preset init
 npx yskill --preset default
 npx yskill --preset frontend
-npx yskill --skill design -a claude-code -a codex
-npx skills@latest add yikZero/skills@design -a claude-code -a codex
+npx yskill --skill design
+npx skills@latest add yikZero/skills@design
 ```
 
 See [docs/SKILLS_CLI_NOTES.md](docs/SKILLS_CLI_NOTES.md) for source formats, lock behavior, update rules, and safe local testing.

@@ -5,7 +5,7 @@ Review and refactor React component APIs, state ownership, and composition patte
 ## Install
 
 ```bash
-npx yskill --skill react-composition -a codex -y
+npx yskill --skill react-composition
 ```
 
 ## Entry

@@ -5,7 +5,7 @@ Add, customize, and review shadcn/ui components with CLI-backed workflows.
 ## Install
 
 ```bash
-npx yskill --skill shadcn-ui -a codex -y
+npx yskill --skill shadcn-ui
 ```
 
 ## Entry

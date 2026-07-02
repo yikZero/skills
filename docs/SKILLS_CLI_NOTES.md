@@ -21,8 +21,11 @@ npx yskill
 npx yskill --list
 npx yskill --preset init
 npx yskill --preset frontend
-npx yskill --skill find-docs -a codex
+npx yskill --skill find-docs
 ```
+
+Use `-a codex`, `-a claude-code`, or other supported agent flags only when the
+install target should be explicit. Use `-y` only for non-interactive installs.
 
 `yskill` forwards most arguments to `npx skills@latest add yikZero/skills`. With no selection arguments, it opens a first-level menu:
 

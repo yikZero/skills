@@ -5,7 +5,7 @@ Use small, verifiable coding guardrails to reduce common LLM implementation mist
 ## Install
 
 ```bash
-npx yskill --skill karpathy-guidelines -a codex -y
+npx yskill --skill karpathy-guidelines
 ```
 
 ## Entry

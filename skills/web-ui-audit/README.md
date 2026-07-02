@@ -5,7 +5,7 @@ Run terse file-line audits for web UI implementation quality.
 ## Install
 
 ```bash
-npx yskill --skill web-ui-audit -a codex -y
+npx yskill --skill web-ui-audit
 ```
 
 ## Entry

@@ -5,7 +5,7 @@ Build embedded coding-agent sessions, tools, skills, resources, and events in Ty
 ## Install
 
 ```bash
-npx yskill --skill pi-coding-agent-sdk -a codex -y
+npx yskill --skill pi-coding-agent-sdk
 ```
 
 ## Entry

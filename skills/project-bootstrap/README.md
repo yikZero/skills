@@ -5,7 +5,7 @@ Turn a new product, app, automation, or library idea into a ready-to-build proje
 ## Install
 
 ```bash
-npx yskill --skill project-bootstrap -a codex -y
+npx yskill --skill project-bootstrap
 ```
 
 ## Entry

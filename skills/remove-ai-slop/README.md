@@ -5,7 +5,7 @@ Clean generated-looking code diffs before review, commit, or handoff.
 ## Install
 
 ```bash
-npx yskill --skill remove-ai-slop -a codex -y
+npx yskill --skill remove-ai-slop
 ```
 
 ## Entry

@@ -5,7 +5,7 @@ Review and optimize React and Next.js performance, rendering, bundles, and data 
 ## Install
 
 ```bash
-npx yskill --skill react-performance -a codex -y
+npx yskill --skill react-performance
 ```
 
 ## Entry

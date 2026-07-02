@@ -5,7 +5,7 @@ Build, debug, and deploy Workflow SDK workflows, hooks, webhooks, and durable ag
 ## Install
 
 ```bash
-npx yskill --skill workflow -a codex -y
+npx yskill --skill workflow
 ```
 
 ## Entry

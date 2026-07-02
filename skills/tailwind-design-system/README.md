@@ -5,7 +5,7 @@ Build and audit Tailwind CSS design systems, tokens, variants, and component pat
 ## Install
 
 ```bash
-npx yskill --skill tailwind-design-system -a codex -y
+npx yskill --skill tailwind-design-system
 ```
 
 ## Entry
