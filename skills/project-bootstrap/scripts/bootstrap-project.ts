@@ -200,6 +200,9 @@ async function createContext(rawArgs: Args): Promise<RenderContext> {
   }
 
   const slug = rawArgs.slug || slugify(projectName);
+  if (!slug) {
+    throw new Error("Project name cannot produce a package slug. Pass --slug <ascii-package-name>.");
+  }
   const pythonPackage = pythonPackageName(slug);
   const description = rawArgs.description || `${projectName} is a new AI-ready project.`;
   const commands = profile.commands(packageManager);
@@ -342,7 +345,7 @@ function printHelp(): void {
 
 Options:
   --description "<text>"     One-sentence product description.
-  --slug <package-name>      package/project slug. Defaults to a slugified project name.
+  --slug <package-name>      package/project slug. Required when name has no ASCII letters or digits.
   --profile <name>           typescript, python, or generic. Defaults to typescript.
   --package-manager <name>   auto, bun, pnpm, npm, uv, or none. Defaults by profile.
   --codex-model <model>      .codex/config.toml model. Defaults to ${DEFAULT_CODEX_MODEL}.
@@ -443,7 +446,7 @@ function slugify(value: string): string {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
-  return slug || "new-project";
+  return slug;
 }
 
 function pythonPackageName(slug: string): string {
