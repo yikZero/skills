@@ -17,3 +17,5 @@ Use this skill when the task matches the frontmatter description.
 ## Resources
 
 Add focused references under `references/`, deterministic helper scripts under `scripts/`, and reusable output assets under `assets/`.
+
+When this skill grows past a single file — three or more references, bundled scripts or templates, or risky actions — see "Structuring Larger Skills" in `skills/skill-authoring/references/standards.md` for how to keep it organized.

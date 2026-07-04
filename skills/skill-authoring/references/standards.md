@@ -39,6 +39,36 @@ Rules:
 - Keep file references one level deep from `SKILL.md`.
 - Add `agents/openai.yaml` for skills that should look good in Codex skill lists. Keep it human-facing and aligned with `SKILL.md`.
 
+## Structuring Larger Skills
+
+Small prompt-style skills need only `SKILL.md`. These rules apply when a skill
+grows past that: multiple references, bundled scripts or templates, or risky
+actions. They are conditional on purpose. Do not add empty sections to a skill
+that does not meet the trigger, because unused scaffolding is its own kind of
+noise.
+
+- **Reference Map when references number three or more.** Add a short map near
+  the top of `SKILL.md` listing each reference, the single concern it owns, and
+  when to read it. Progressive disclosure only works if the agent knows which
+  file answers which question without opening all of them. Give every reference
+  one job so the map stays honest.
+- **Separate maintainer content from the runtime workflow.** When a skill
+  bundles `scripts/` or `assets/templates/`, guidance for changing those (file
+  layout, placeholder wiring, how to add a variant, versioning policy) belongs
+  in `references/maintenance.md`, not in the steps an agent follows to run the
+  skill. Mixing the two makes every run pay to read instructions it will never
+  use, and tempts maintenance edits into the wrong file.
+- **One authoritative source per fact.** State each command, file list, or rule
+  in exactly one place and point to it from everywhere else. Duplicated facts
+  drift: the copy you forget to update becomes a quiet lie. A pointer that reads
+  "use the canonical command in `skill-recommendation.md`" is longer to follow
+  but never wrong.
+- **Keep a Stop Conditions section for risky actions.** If a skill can
+  overwrite files, install heavy dependencies, create remote resources, or
+  handle secrets, list the moments it must pause and ask. Agents optimize for
+  finishing the task; the explicit list is what makes them stop before an
+  irreversible step.
+
 ## Migrating External Skills
 
 When importing a skill from another repository, copy only the clean skill package into `skills/<name>/`. Do not copy generated install directories, lock files, dependency folders, or repository metadata.
