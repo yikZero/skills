@@ -113,14 +113,5 @@ have been moved into `README.md`, `PRODUCT.md`, `AGENTS.md`,
 - Update docs in the same change that changes product behavior, commands,
   architecture, or agent workflow.
 
-## Template Maintenance
-
-- Generated file contents live in `assets/templates/base/` and
-  `assets/templates/profiles/<profile>/`.
-- Keep `scripts/bootstrap-project.ts` focused on rendering, profile selection,
-  command mapping, and placeholder wiring.
-- Do not maintain exact external tool or dependency versions in templates. Use
-  unpinned dependencies where practical and let the generated project's lockfile
-  record resolved versions.
-- To add a new language/tooling profile, add profile templates first, then add a
-  small profile registry entry in the script and smoke-test generation.
+How these documents are generated (templates, renderer script, profiles) is a
+maintainer concern; see `maintenance.md`.

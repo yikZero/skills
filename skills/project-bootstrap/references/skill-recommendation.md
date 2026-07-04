@@ -6,7 +6,8 @@ exists.
 
 ## Required Project Skill
 
-Install `find-docs` into the target project by default, not only globally:
+This is the canonical install command for `find-docs`; other files point here.
+Install it into the target project by default, not only globally:
 
 ```bash
 cd <target-project>

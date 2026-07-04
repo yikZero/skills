@@ -73,3 +73,4 @@ docs/context bootstrap.
 - [Initialization routes](./references/routes.md)
 - [Control documents](./references/control-docs.md)
 - [Skill recommendation](./references/skill-recommendation.md)
+- [Skill maintenance](./references/maintenance.md) — for maintainers of this skill, not part of a bootstrap run

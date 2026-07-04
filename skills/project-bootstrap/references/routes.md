@@ -26,12 +26,7 @@ It creates a project baseline:
 - a temporary `INIT.md`
 - a repo meant to grow beyond a throwaway prototype
 
-Command:
-
-```bash
-bun <this-skill>/scripts/bootstrap-project.ts --path <target> --name "<Project Name>" --description "<one sentence>" --profile <typescript|python|generic> --package-manager <auto|bun|pnpm|npm|uv|none>
-```
-
+Run the canonical `scripts/bootstrap-project.ts` command from `SKILL.md`.
 Common examples:
 
 ```bash
@@ -39,9 +34,6 @@ bun <this-skill>/scripts/bootstrap-project.ts --path ./my-app --name "My App" --
 bun <this-skill>/scripts/bootstrap-project.ts --path ./my-api --name "My API" --profile python
 bun <this-skill>/scripts/bootstrap-project.ts --path ./my-app --name "My App" --profile typescript --package-manager pnpm
 ```
-
-Template contents are maintained under `assets/templates/`; the script should
-remain a typed renderer and profile registry.
 
 ## External Template Route
 
@@ -89,9 +81,9 @@ Process:
    examples for the platform.
 3. Use `generic` when runtime/tooling is still unclear, or the nearest runtime
    profile only for commands and validation.
-4. Keep `.codex/config.toml`, `PRODUCT.md`, `AGENTS.md`, `ARCHITECTURE.md`,
-   `ROADMAP.md`, `CODESTYLE.md`, `DESIGN.md`, repo-local skills, and temporary
-   `INIT.md` as the stable project overlay.
+4. Keep the stable project overlay: the full control-doc set from
+   `control-docs.md`, `.codex/config.toml`, repo-local skills, and a temporary
+   `INIT.md`.
 5. Record platform-specific commands in `README.md` and `AGENTS.md`, then run
    them before finishing.
 

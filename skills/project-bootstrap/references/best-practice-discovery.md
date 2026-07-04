@@ -18,11 +18,8 @@ npx skills find "<app-type-or-stack> setup"
 ```
 
 If `.agents/skills/find-docs` is missing in an existing target project, install
-it project-locally before the docs lookup:
-
-```bash
-npx skills@latest add yikZero/skills --skill find-docs -a codex -y
-```
+it project-locally before the docs lookup, using the canonical install command
+in `skill-recommendation.md`.
 
 Run additional web searches when the app type, platform, repository hygiene,
 security, or current ecosystem practice is not fully answered by the minimum
