@@ -77,6 +77,7 @@ scripts/
 - `chat-sdk`: build and review Vercel Chat SDK bots across Slack, GitHub, Discord, Teams, and other chat platforms using SDK-native adapters, events, streaming, state, cards, and webhooks.
 - `find-docs`: Context7 CLI workflow for fetching current library, framework, SDK, API, and CLI documentation.
 - `project-bootstrap`: turn a new product, app, automation, or library idea into a ready-to-build project baseline with current-docs discovery, runtime or framework selection, control docs, repo-local helper skills, validation, and a first-workflow handoff.
+- `postgres-best-practices`: design, query, migrate, and operate PostgreSQL with production-proven rules for schema and data types, indexing, query tuning, zero-downtime migrations, and scaling, synthesized from OpenAI's scaling playbook, the PostgreSQL wiki, and strong_migrations.
 - `karpathy-guidelines`: behavioral guardrails inspired by Andrej Karpathy's observations for reducing overcomplication, broad edits, hidden assumptions, and unverifiable coding work.
 - `learn-to-agents`: capture durable project discoveries in the nearest scoped `AGENTS.md`.
 - `remove-ai-slop`: clean generated-looking code from diffs before review or commit.

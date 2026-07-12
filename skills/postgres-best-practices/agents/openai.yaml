@@ -1,0 +1,4 @@
+interface:
+  display_name: Postgres Best Practices
+  short_description: Apply production PostgreSQL rules for schema design, queries, indexes, migrations, and scaling.
+  default_prompt: Use Postgres Best Practices to review the target schema, queries, or migration for correctness and performance issues.
