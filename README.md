@@ -79,8 +79,6 @@ scripts/
 - `project-bootstrap`: turn a new product, app, automation, or library idea into a ready-to-build project baseline with current-docs discovery, runtime or framework selection, control docs, repo-local helper skills, validation, and a first-workflow handoff.
 - `postgres-best-practices`: design, query, migrate, and operate PostgreSQL with production-proven rules for schema and data types, indexing, query tuning, zero-downtime migrations, and scaling, synthesized from OpenAI's scaling playbook, the PostgreSQL wiki, and strong_migrations.
 - `karpathy-guidelines`: behavioral guardrails inspired by Andrej Karpathy's observations for reducing overcomplication, broad edits, hidden assumptions, and unverifiable coding work.
-- `learn-to-agents`: capture durable project discoveries in the nearest scoped `AGENTS.md`.
-- `remove-ai-slop`: clean generated-looking code from diffs before review or commit.
 - `react-composition`: review and refactor React component APIs, state ownership, and composition patterns.
 - `react-performance`: review and improve React or Next.js performance using Vercel-style rules.
 - `shadcn-ui`: add, customize, and review shadcn/ui components with CLI-backed workflows.

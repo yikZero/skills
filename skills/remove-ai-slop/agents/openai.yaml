@@ -1,4 +1,0 @@
-interface:
-  display_name: Remove AI Slop
-  short_description: Clean generated-looking code from diffs before review or commit without broad rewrites.
-  default_prompt: Use Remove AI Slop to inspect and clean the current diff before commit.

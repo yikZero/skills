@@ -45,8 +45,6 @@ npx yskill --skill <skill-name> -a codex -y
 Default/core skills are useful for most coding projects:
 
 - `find-docs`: current framework, SDK, API, and CLI docs.
-- `remove-ai-slop`: clean generated-looking diffs before commit/review.
-- `learn-to-agents`: write durable project discoveries to scoped `AGENTS.md`.
 
 Frontend projects often benefit from:
 
