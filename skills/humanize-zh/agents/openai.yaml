@@ -1,0 +1,4 @@
+interface:
+  display_name: Humanize (中文改稿)
+  short_description: Strip AI flavor from Chinese drafts while preserving meaning, tone, and the author's voice.
+  default_prompt: Use Humanize (中文改稿) to rewrite the target Chinese draft so it reads like a specific person wrote it.

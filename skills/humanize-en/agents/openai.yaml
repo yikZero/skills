@@ -1,0 +1,4 @@
+interface:
+  display_name: Humanize (English)
+  short_description: Strip AI flavor from English drafts while preserving meaning, tone, and the author's voice.
+  default_prompt: Use Humanize (English) to rewrite the target English draft so it reads like a specific person wrote it.
