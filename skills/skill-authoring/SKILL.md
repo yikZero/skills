@@ -18,7 +18,7 @@ Use this skill to create or improve Agent Skills that work across Claude Code, C
 
 ## Standards
 
-Read `references/standards.md` before making structural decisions about frontmatter fields, directory layout, or install behavior.
+Read `references/standards.md` before making structural decisions about frontmatter fields, directory layout, or install behavior, and before designing a skill body — it also covers design patterns: single-responsibility declarations with sibling routing, prompt-injection defense for repo-sweeping skills, required negative output for finders and auditors, anti-example output formats, value-precision rules, operating posture, effort tiers, and explicit-only invocation.
 
 ## Validation
 

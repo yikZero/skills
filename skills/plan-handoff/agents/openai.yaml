@@ -1,0 +1,4 @@
+interface:
+  display_name: Plan Handoff
+  short_description: Audit one focus area and write self-contained implementation plans for any executor agent.
+  default_prompt: Use Plan Handoff to audit the stated focus area and write prioritized, self-contained implementation plans into plans/.
