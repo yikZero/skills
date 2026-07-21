@@ -19,8 +19,9 @@ With no arguments this opens a menu:
 ```text
 What do you want to install?
 > Project init
-  Core recommended
+  Improve a codebase
   Frontend bundle
+  Writing bundle
   Pick individual skills
   Install all
 ```
@@ -31,6 +32,7 @@ In non-interactive shells, pass a selection explicitly so it cannot accidentally
 npx yskill --preset init
 npx yskill --preset default
 npx yskill --preset frontend
+npx yskill --preset writing
 npx yskill --skill plan-handoff
 npx yskill --all
 ```

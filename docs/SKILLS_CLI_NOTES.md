@@ -32,15 +32,17 @@ install target should be explicit. Use `-y` only for non-interactive installs.
 ```text
 What do you want to install?
 > Project init
-  Core recommended
+  Improve a codebase
   Frontend bundle
+  Writing bundle
   Pick individual skills
   Install all
 ```
 
 `--preset init` expands to `project-bootstrap`.
-`--preset default` expands to `plan-handoff`.
-`--preset frontend` expands to the default set plus `design`, `web-ui-audit`, `react-performance`, `react-composition`, `shadcn-ui`, and `tailwind-design-system`.
+`--preset default` (alias `core`) expands to `plan-handoff`.
+`--preset frontend` expands to `design`, `web-ui-audit`, `react-performance`, `react-composition`, `shadcn-ui`, and `tailwind-design-system`.
+`--preset writing` expands to `humanize-zh` and `humanize-en`.
 In non-interactive shells, `yskill` requires an explicit selection such as `--preset`, `--skill`, `--all`, or `--list`; it must not fall through to the upstream CLI's default install behavior.
 
 Useful shorthand:

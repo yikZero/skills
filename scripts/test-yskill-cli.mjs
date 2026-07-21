@@ -33,13 +33,35 @@ function expect(condition, message) {
   expect(result.status === 0, '--help should exit 0');
   expect(result.stdout.includes('Usage:'), '--help should print usage');
   expect(result.stdout.includes('init           project-bootstrap'), '--help should document init preset');
+  expect(result.stdout.includes('writing        humanize-zh, humanize-en'), '--help should document writing preset');
   expect(!result.stdout.includes('Installing'), '--help should not install skills');
+}
+
+{
+  const result = run(['--help']);
+  const lines = result.stdout.split('\n');
+  const start = lines.findIndex((line) => line.trim() === 'Presets:');
+  expect(start !== -1, '--help should have a Presets section');
+
+  const skills = new Set();
+  for (let index = start + 1; index < lines.length && lines[index].trim() !== ''; index += 1) {
+    const description = lines[index].trim().split(/\s{2,}/)[1];
+    for (const skill of description?.split(', ') ?? []) skills.add(skill);
+  }
+  expect(skills.size > 0, 'preset skills should be parseable from --help');
+
+  for (const skill of skills) {
+    expect(
+      existsSync(join(root, 'skills', skill, 'SKILL.md')),
+      `preset references "${skill}" but skills/${skill}/SKILL.md does not exist`,
+    );
+  }
 }
 
 {
   const result = run(['--preset=unknown']);
   expect(result.status === 1, 'unknown preset should exit 1');
-  expect(result.stderr.includes('init, default, core, frontend'), 'unknown preset should list valid presets');
+  expect(result.stderr.includes('init, default, core, frontend, writing'), 'unknown preset should list valid presets');
 }
 
 {

@@ -5,26 +5,41 @@ import { readFileSync } from 'node:fs';
 
 const SOURCE = 'yikZero/skills';
 const VERSION = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version;
-const INIT_SKILLS = ['project-bootstrap'];
-const CORE_SKILLS = ['plan-handoff'];
-const FRONTEND_SKILLS = [
-  ...CORE_SKILLS,
-  'design',
-  'web-ui-audit',
-  'react-performance',
-  'react-composition',
-  'shadcn-ui',
-  'tailwind-design-system',
+
+// Single source of truth for presets: flags, menu entry, and skill list.
+// The PRESETS map, menu choices, help text, and dispatch all derive from it.
+const PRESET_DEFS = [
+  {
+    flags: ['init'],
+    menu: 'Project init',
+    skills: ['project-bootstrap'],
+  },
+  {
+    flags: ['default', 'core'],
+    menu: 'Improve a codebase',
+    skills: ['plan-handoff'],
+  },
+  {
+    flags: ['frontend'],
+    menu: 'Frontend bundle',
+    skills: [
+      'design',
+      'web-ui-audit',
+      'react-performance',
+      'react-composition',
+      'shadcn-ui',
+      'tailwind-design-system',
+    ],
+  },
+  {
+    flags: ['writing'],
+    menu: 'Writing bundle',
+    skills: ['humanize-zh', 'humanize-en'],
+  },
 ];
 
-const PRESETS = new Map([
-  ['init', INIT_SKILLS],
-  ['default', CORE_SKILLS],
-  ['core', CORE_SKILLS],
-  ['frontend', FRONTEND_SKILLS],
-]);
-
-const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+const PRESETS = new Map(PRESET_DEFS.flatMap((def) => def.flags.map((flag) => [flag, def.skills])));
+const PRESET_NAMES = [...PRESETS.keys()].join(', ');
 
 function buildArgs(args) {
   return [
@@ -41,7 +56,11 @@ function buildArgs(args) {
 }
 
 function spawnSkills(args) {
-  const child = spawn(npm, buildArgs(args), { stdio: 'inherit' });
+  // Node >=18.20/20.12 refuses to spawn .cmd shims on Windows without a shell.
+  const child = spawn('npm', buildArgs(args), {
+    stdio: 'inherit',
+    shell: process.platform === 'win32',
+  });
 
   child.on('exit', (code, signal) => {
     if (signal) {
@@ -72,7 +91,7 @@ function parsePreset(args) {
     if (arg === '--preset') {
       preset = args[index + 1];
       if (!preset || preset.startsWith('-')) {
-        console.error('Missing value for --preset. Use one of: init, default, core, frontend');
+        console.error(`Missing value for --preset. Use one of: ${PRESET_NAMES}`);
         process.exit(1);
       }
       index += 1;
@@ -91,7 +110,7 @@ function parsePreset(args) {
 
   const skills = PRESETS.get(preset);
   if (!skills) {
-    console.error(`Unknown preset "${preset}". Use one of: ${[...PRESETS.keys()].join(', ')}`);
+    console.error(`Unknown preset "${preset}". Use one of: ${PRESET_NAMES}`);
     process.exit(1);
   }
 
@@ -120,20 +139,24 @@ function hasVersion(args) {
   return args.includes('--version') || args.includes('-v');
 }
 
+function presetHelpLines() {
+  const labels = PRESET_DEFS.map((def) => def.flags.join(', '));
+  const width = Math.max(...labels.map((label) => label.length));
+  return PRESET_DEFS.map((def, index) => `  ${labels[index].padEnd(width)}  ${def.skills.join(', ')}`).join('\n');
+}
+
 function printHelp() {
   console.log(`yskill ${VERSION}
 
 Usage:
   npx yskill
-  npx yskill --preset <init|default|core|frontend> [skills options]
+  npx yskill --preset <${[...PRESETS.keys()].join('|')}> [skills options]
   npx yskill --skill <name> [skills options]
   npx yskill --all [skills options]
   npx yskill --list
 
 Presets:
-  init           ${INIT_SKILLS.join(', ')}
-  default, core  ${CORE_SKILLS.join(', ')}
-  frontend       ${FRONTEND_SKILLS.join(', ')}
+${presetHelpLines()}
 
 Options:
   --preset <name>   Install a bundled skill set.
@@ -149,12 +172,11 @@ In non-interactive shells, pass --preset, --skill, --all, or --list explicitly.`
 }
 
 function printNonInteractiveUsage() {
+  const presetLines = PRESET_DEFS.map((def) => `  npx yskill --preset ${def.flags[0]}`).join('\n');
   console.error(`yskill needs an explicit selection in non-interactive shells.
 
 Use one of:
-  npx yskill --preset init
-  npx yskill --preset default
-  npx yskill --preset frontend
+${presetLines}
   npx yskill --skill plan-handoff -a codex -y
   npx yskill --all
   npx yskill --list`);
@@ -166,21 +188,11 @@ async function chooseInstallMode() {
   return select({
     message: 'What do you want to install?',
     choices: [
-      {
-        name: 'Project init',
-        value: 'init',
-        description: INIT_SKILLS.join(', '),
-      },
-      {
-        name: 'Core recommended',
-        value: 'core',
-        description: CORE_SKILLS.join(', '),
-      },
-      {
-        name: 'Frontend bundle',
-        value: 'frontend',
-        description: FRONTEND_SKILLS.join(', '),
-      },
+      ...PRESET_DEFS.map((def) => ({
+        name: def.menu,
+        value: def.flags[0],
+        description: def.skills.join(', '),
+      })),
       {
         name: 'Pick individual skills',
         value: 'individual',
@@ -189,7 +201,7 @@ async function chooseInstallMode() {
       {
         name: 'Install all',
         value: 'all',
-        description: 'Install every skill from yikZero/skills.',
+        description: `Install every skill from ${SOURCE}.`,
       },
     ],
   });
@@ -224,19 +236,10 @@ async function main() {
 
   try {
     const mode = await chooseInstallMode();
+    const presetSkills = PRESETS.get(mode);
 
-    if (mode === 'init') {
-      spawnSkills(withSkills(parsed.args, INIT_SKILLS));
-      return;
-    }
-
-    if (mode === 'core') {
-      spawnSkills(withSkills(parsed.args, CORE_SKILLS));
-      return;
-    }
-
-    if (mode === 'frontend') {
-      spawnSkills(withSkills(parsed.args, FRONTEND_SKILLS));
+    if (presetSkills) {
+      spawnSkills(withSkills(parsed.args, presetSkills));
       return;
     }
 
