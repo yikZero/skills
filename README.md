@@ -36,7 +36,7 @@ In non-interactive shells, pass a selection explicitly so it cannot accidentally
 npx yskill --preset init
 npx yskill --preset default
 npx yskill --preset frontend
-npx yskill --skill find-docs
+npx yskill --skill plan-handoff
 npx yskill --all
 ```
 
@@ -74,13 +74,10 @@ scripts/
 ## Included Skills
 
 - `design`: focused frontend UI review and refinement workflow adapted from `pbakaus/impeccable`, exposed as `audit`, `critique`, `polish`, `harden`, `layout`, `typeset`, `colorize`, `clarify`, and `distill`.
-- `chat-sdk`: build and review Vercel Chat SDK bots across Slack, GitHub, Discord, Teams, and other chat platforms using SDK-native adapters, events, streaming, state, cards, and webhooks.
-- `find-docs`: Context7 CLI workflow for fetching current library, framework, SDK, API, and CLI documentation.
 - `project-bootstrap`: turn a new product, app, automation, or library idea into a ready-to-build project baseline with current-docs discovery, runtime or framework selection, control docs, repo-local helper skills, validation, and a first-workflow handoff.
 - `postgres-best-practices`: design, query, migrate, and operate PostgreSQL with production-proven rules for schema and data types, indexing, query tuning, zero-downtime migrations, and scaling, synthesized from OpenAI's scaling playbook, the PostgreSQL wiki, and strong_migrations.
 - `humanize-zh`: strip AI flavor from Chinese drafts with a six-layer pattern table (词汇、句式、结构、标点、语气、内容), honesty rules against fabricated specificity, and a pre-delivery checklist, synthesized from [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh), and [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop).
 - `humanize-en`: strip AI flavor from English drafts with a 27-pattern table, honesty rules against fabricated specificity, and a pre-delivery checklist, synthesized from [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop), and [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh).
-- `karpathy-guidelines`: behavioral guardrails inspired by Andrej Karpathy's observations for reducing overcomplication, broad edits, hidden assumptions, and unverifiable coding work.
 - `plan-handoff`: audit a codebase in one focus area, then write prioritized, self-contained implementation plans into `plans/` that any executor agent, including cheaper models, can apply with zero extra context, generalized from [emilkowalski/skills](https://github.com/emilkowalski/skills) `improve-animations` and [shadcn/improve](https://github.com/shadcn/improve).
 - `react-composition`: review and refactor React component APIs, state ownership, and composition patterns.
 - `react-performance`: review and improve React or Next.js performance using Vercel-style rules.
@@ -88,8 +85,6 @@ scripts/
 - `skill-authoring`: create, update, and validate portable Agent Skills.
 - `tailwind-design-system`: build and audit Tailwind CSS design systems, tokens, variants, and component patterns.
 - `web-ui-audit`: run terse file:line audits against web UI implementation guidelines.
-- `workflow`: install, configure, build, debug, and self-host Workflow SDK workflows, prioritizing TanStack Start, Next.js, and Vite while still linking to broader docs and examples.
-- `pi-coding-agent-sdk`: source-backed workflows and recipes for embedding Pi Coding Agent SDK sessions, runtime flows, custom tools, custom skills, resource loading, streaming events, and test harnesses in TypeScript host apps.
 
 ## Installed Paths
 

@@ -4,30 +4,16 @@ Recommend skills as part of project initialization only when they match the
 project type or near-term work. Avoid installing a large bundle just because it
 exists.
 
-## Required Project Skill
+## Init Preset
 
-This is the canonical install command for `find-docs`; other files point here.
-Install it into the target project by default, not only globally:
-
-```bash
-cd <target-project>
-npx skills@latest add yikZero/skills --skill find-docs -a codex -y
-```
-
-This creates `.agents/skills/find-docs` so future project agents can run current
-docs lookup without depending on the user's global skill set. Do not vendor a
-copy of `find-docs` into this skill's templates; install it from the catalog so
-updates come from one source.
-
-If the user is installing init tooling into a project directly, this catalog also
+If the user is installing init tooling into a project directly, this catalog
 supports:
 
 ```bash
 npx yskill --preset init -a codex -y
 ```
 
-The `init` preset expands to `project-bootstrap`. The init workflow then installs
-`find-docs` into the target project as a project-local skill.
+The `init` preset expands to `project-bootstrap`.
 
 ## Local Catalog Defaults
 
@@ -44,7 +30,7 @@ npx yskill --skill <skill-name> -a codex -y
 
 Default/core skills are useful for most coding projects:
 
-- `find-docs`: current framework, SDK, API, and CLI docs.
+- `plan-handoff`: audit one focus area and write self-contained implementation plans any executor agent can apply.
 
 Frontend projects often benefit from:
 

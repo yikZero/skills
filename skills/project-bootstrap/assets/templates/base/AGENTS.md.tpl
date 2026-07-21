@@ -28,7 +28,6 @@ Add stack-specific browser screenshot, CI, deployment smoke, or pre-commit comma
 ## Repo-Local Skills
 
 - `.agents/skills/project-bootstrap`: use when turning this baseline into the first real stack and workflow.
-- `.agents/skills/find-docs`: use for current framework, SDK, API, and CLI documentation. This should be installed from `yikZero/skills` during initialization.
 - `.agents/skills/ask-questions-if-underspecified`: use when missing decisions would cause churn.
 - `.agents/skills/review-ui-screenshots`: use for frontend visual review after UI changes.
 
@@ -36,10 +35,8 @@ Add stack-specific browser screenshot, CI, deployment smoke, or pre-commit comma
 
 Install reusable skills deliberately instead of copying their instructions into this repo.
 
-- `remove-ai-slop`: clean generated-looking diffs before commit or review.
-- `learn-to-agents`: save durable project discoveries to scoped agent docs.
-- `diagnose`: reproduce, minimize, instrument, and fix hard bugs.
-- `tdd`: use a red-green-refactor loop for risky product behavior.
+- `plan-handoff`: audit one focus area and write self-contained implementation plans any executor agent can apply.
+- `humanize-en` / `humanize-zh`: strip AI flavor from English or Chinese prose before publishing.
 
 Frontend projects often also use `design`, `web-ui-audit`, `react-performance`, `react-composition`, `shadcn-ui`, and `tailwind-design-system`.
 

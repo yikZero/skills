@@ -52,7 +52,7 @@ Each reference owns one concern. Read it at the step that points to it.
 
 3. **Run best-practice discovery.** Read `references/best-practice-discovery.md`.
    - Always run both a web search pass and a current docs lookup pass for the app type, likely stack, validation, project structure, and current generator commands.
-   - Never guess version-sensitive commands for fast-moving tools: verify current generator, lint, test, package-manager, deployment, SDK, and CLI syntax against official docs or the `find-docs` workflow before using them.
+   - Never guess version-sensitive commands for fast-moving tools: verify current generator, lint, test, package-manager, deployment, SDK, and CLI syntax against current official docs (web search plus fetching the official pages) before using them.
    - Treat catalog defaults as defaults, not fixed law. If current best practice suggests a better route, package manager, validator, framework, or project structure, recommend it and record the reason.
    - Keep compact discovery notes in the working context, then write them into `INIT.md` immediately after the baseline exists.
 
@@ -72,10 +72,6 @@ Each reference owns one concern. Read it at the step that points to it.
 
      This writes `.codex/config.toml`, the control docs, `.agents/skills/*`, and the selected profile's tooling (`package.json`/`biome.json`/`tsconfig.json`/Vitest, or `pyproject.toml`/Makefile/Ruff/pytest).
    - For the framework, external template, and flexible routes, follow the procedures in `references/routes.md`: generator or template first, then the same control-doc overlay and a temporary `INIT.md` while setup work remains.
-   - Install `find-docs` into the target project as a project-local skill by default (canonical command and rationale in `references/skill-recommendation.md`):
-
-         cd <target> && npx skills@latest add yikZero/skills --skill find-docs -a codex -y
-
    - Immediately replace the `Best-Practice Discovery` placeholders in `INIT.md` with the sources checked, decisions, rejected alternatives, and better-than-default suggestions.
    - Keep secrets out of files. Write only variable names to `.env.example`.
 
@@ -83,7 +79,7 @@ Each reference owns one concern. Read it at the step that points to it.
    At minimum personalize `README.md`, `PRODUCT.md`, `AGENTS.md`, `ARCHITECTURE.md`, and `INIT.md`. Default to keeping `ROADMAP.md`, `CODESTYLE.md`, and `DESIGN.md` too: this is a full project baseline, not a bare package scaffold. Delete `INIT.md` only after the setup slice is complete and its remaining truth has moved into the durable docs.
 
 7. **Recommend skills and set up validation.** Read `references/skill-recommendation.md`.
-   - Treat `find-docs` as the default required project-local skill unless the user explicitly opts out. Prefer this catalog's `yskill` presets for common needs; run `npx skills find "<query>"` for project-specific needs and inspect candidates before recommending them.
+   - Recommend catalog skills only when they match the project type or near-term work. Prefer this catalog's `yskill` presets for common needs; run `npx skills find "<query>"` for project-specific needs and inspect candidates before recommending them.
    - If no suitable skill exists, summarize the workflow in `AGENTS.md` instead of forcing a weak install.
    - Default validation commands by profile:
 

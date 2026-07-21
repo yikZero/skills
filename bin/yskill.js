@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 const SOURCE = 'yikZero/skills';
 const VERSION = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version;
 const INIT_SKILLS = ['project-bootstrap'];
-const CORE_SKILLS = ['find-docs'];
+const CORE_SKILLS = ['plan-handoff'];
 const FRONTEND_SKILLS = [
   ...CORE_SKILLS,
   'design',
@@ -155,7 +155,7 @@ Use one of:
   npx yskill --preset init
   npx yskill --preset default
   npx yskill --preset frontend
-  npx yskill --skill find-docs -a codex -y
+  npx yskill --skill plan-handoff -a codex -y
   npx yskill --all
   npx yskill --list`);
 }

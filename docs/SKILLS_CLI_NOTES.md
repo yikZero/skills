@@ -9,7 +9,7 @@ The CLI accepts several source forms:
 ```bash
 npx skills add yikZero/skills
 npx skills add https://github.com/yikZero/skills
-npx skills add https://github.com/yikZero/skills/tree/main/skills/pi-coding-agent-sdk
+npx skills add https://github.com/yikZero/skills/tree/main/skills/postgres-best-practices
 npx skills add git@github.com:yikZero/skills.git
 npx skills add ./local-skills-repo
 ```
@@ -21,7 +21,7 @@ npx yskill
 npx yskill --list
 npx yskill --preset init
 npx yskill --preset frontend
-npx yskill --skill find-docs
+npx yskill --skill plan-handoff
 ```
 
 Use `-a codex`, `-a claude-code`, or other supported agent flags only when the
@@ -38,9 +38,8 @@ What do you want to install?
   Install all
 ```
 
-`--preset init` expands to `project-bootstrap`. The init workflow installs
-`find-docs` into the target project as a project-local skill.
-`--preset default` expands to `find-docs`.
+`--preset init` expands to `project-bootstrap`.
+`--preset default` expands to `plan-handoff`.
 `--preset frontend` expands to the default set plus `design`, `web-ui-audit`, `react-performance`, `react-composition`, `shadcn-ui`, and `tailwind-design-system`.
 In non-interactive shells, `yskill` requires an explicit selection such as `--preset`, `--skill`, `--all`, or `--list`; it must not fall through to the upstream CLI's default install behavior.
 
@@ -48,10 +47,10 @@ Useful shorthand:
 
 ```bash
 # Install one skill by source-level selector.
-npx skills add yikZero/skills@pi-coding-agent-sdk
+npx skills add yikZero/skills@postgres-best-practices
 
 # Pin a branch/tag/ref; optionally select a skill after @.
-npx skills add yikZero/skills#main@pi-coding-agent-sdk
+npx skills add yikZero/skills#main@postgres-best-practices
 
 # Install all skills from a source.
 npx skills add yikZero/skills --all
@@ -60,7 +59,7 @@ npx skills add yikZero/skills --all
 npx skills add yikZero/skills --skill '*' -a claude-code
 
 # Install one skill to all detected/supported agents.
-npx skills add yikZero/skills --agent '*' --skill pi-coding-agent-sdk
+npx skills add yikZero/skills --agent '*' --skill postgres-best-practices
 ```
 
 For multi-word skill names, quote the full value. This catalog uses kebab-case names, so quoting should rarely be needed.
@@ -117,14 +116,14 @@ Symlink mode is the default and preferred mode. The CLI copies the skill to the 
 Use `--copy` only when symlinks are not suitable:
 
 ```bash
-npx skills add yikZero/skills --skill pi-coding-agent-sdk -a claude-code -a codex --copy
+npx skills add yikZero/skills --skill postgres-best-practices -a claude-code -a codex --copy
 ```
 
 ## Updating Installed Skills
 
 ```bash
 npx skills update
-npx skills update pi-coding-agent-sdk
+npx skills update postgres-best-practices
 npx skills update -p -y
 npx skills update -g -y
 ```

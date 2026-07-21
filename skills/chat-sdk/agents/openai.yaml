@@ -1,4 +1,0 @@
-interface:
-  display_name: Chat SDK
-  short_description: Build and review Chat SDK bots across Slack, GitHub, Discord, Teams, and more.
-  default_prompt: Use Chat SDK to implement or review this bot using SDK-native adapters, events, streaming, state, cards, and webhooks.

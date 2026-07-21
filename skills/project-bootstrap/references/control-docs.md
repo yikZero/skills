@@ -98,8 +98,6 @@ have been moved into `README.md`, `PRODUCT.md`, `AGENTS.md`,
   open decision.
 - `.agents/skills/project-bootstrap/SKILL.md`: repo-local first customization
   workflow.
-- `.agents/skills/find-docs/SKILL.md`: project-local current docs lookup
-  workflow, installed from the catalog during initialization.
 - `.agents/skills/ask-questions-if-underspecified/SKILL.md`: local clarification
   workflow.
 - `.agents/skills/review-ui-screenshots/SKILL.md`: local screenshot review
